@@ -59,7 +59,6 @@ optional_packages=(
     slurp
     thunar
     btop
-    firefox
     thunderbird
     mpv
     pamixer
@@ -80,6 +79,8 @@ optional_packages=(
     xfce4-settings
     nwg-look-bin
     sddm
+    firefox
+    brave-bin
     visual-studio-code-bin
 )
 

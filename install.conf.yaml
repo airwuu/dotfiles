@@ -29,7 +29,7 @@
     ~/.gitconfig: .gitconfig
 
 - shell:
-    - [assets/bootstrap/paru.sh, Installing paru]
-    - [assets/bootstrap/packages.sh, Installing packages]
-    - [assets/bootstrap/zgenom.sh, Installing zgenom]
+    - [./assets/bootstrap/paru.sh, Installing paru]
+    - [./assets/bootstrap/packages.sh, Installing packages]
+    - [./assets/bootstrap/zgenom.sh, Installing zgenom]
     - [chsh -s $(which zsh), Making zsh the default shell]

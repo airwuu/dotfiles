@@ -226,10 +226,16 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     done
 
     # Install Docker
-    echo -e "$CNT - Installing Docker. This may take a while."
+    echo -e "$CNT - Installing Docker."
     sudo pacman -S --noconfirm docker
     sudo systemctl enable --now docker.service &>> $INSTLOG
     sudo usermod -aG docker $USER
+
+    # Install Docker & Vencord
+    echo -e "$CNT - Installing Discord and Vencord."
+    sudo pacman -S --noconfirm discord
+    sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
+    echo -e "$CNT -- Vencord installed; manually run the installer after the script has finished executing."
 
     # Start the bluetooth service.
     echo -e "$CNT - Starting the Bluetooth Service."
@@ -271,7 +277,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Setup each appliaction's config.
     # Check for existing config folders and backup existing ones.
-    for DIR in hypr kitty mako swaylock waybar wlogout wofi Code
+    for DIR in hypr kitty mako swaylock waybar wlogout wofi Code Vencord
     do
         DIRPATH=~/.config/$DIR
 
@@ -300,6 +306,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ./.config/Code/User/settings.json ~/.config/Code/User/settings.json
     ln -sf ./.config/Code/User/tasks.json ~/.config/Code/User/tasks.json
     ln -sf ./.config/Code/User/snippets/php.json ~/.config/Code/User/snippets/php.json
+    ln -sf ./.config/Vencord/settings/quickCss.css ~/.config/Vencord/settings/quickCss.css
+    ln -sf ./.config/Vencord/settings/settings.json ~/.config/Vencord/settings/settings.json
 
     # add the Nvidia env file to the config (if needed)
     if [[ "$ISNVIDIA" == true ]]; then

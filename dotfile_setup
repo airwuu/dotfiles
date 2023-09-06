@@ -80,6 +80,7 @@ optional_packages=(
     xfce4-settings
     nwg-look-bin
     sddm
+    visual-studio-code-bin
 )
 
 # Function to install the given package.
@@ -270,7 +271,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Setup each appliaction's config.
     # Check for existing config folders and backup existing ones.
-    for DIR in hypr kitty mako swaylock waybar wlogout wofi
+    for DIR in hypr kitty mako swaylock waybar wlogout wofi Code
     do
         DIRPATH=~/.config/$DIR
 
@@ -295,6 +296,10 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     ln -sf ./.config/wlogout/layout ~/.config/wlogout/layout
     ln -sf ./.config/wofi/config ~/.config/wofi/config
     ln -sf ./.config/wofi/style/v4-style-dark.css ~/.config/wofi/style.css
+    ln -sf ./.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+    ln -sf ./.config/Code/User/settings.json ~/.config/Code/User/settings.json
+    ln -sf ./.config/Code/User/tasks.json ~/.config/Code/User/tasks.json
+    ln -sf ./.config/Code/User/snippets/php.json ~/.config/Code/User/snippets/php.json
 
     # add the Nvidia env file to the config (if needed)
     if [[ "$ISNVIDIA" == true ]]; then

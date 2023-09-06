@@ -345,6 +345,13 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e '\neval "$(starship init bash)"' >> ~/.bashrc
     echo -e "$CNT - Copying starship config file to ~/.config."
     cp ./.config/sddm_themes/starship.toml ~/.config/
+
+    # Update .bashrc alias to handle dotfiles
+    echo -e "$CNT - Adding 'dotfiles' alias to ~/.bashrc"
+    git clone --bare git@github.com:Toxocious/dotfiles.git $HOME/.dotfiles
+    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+    dotfiles config --local status.showUntrackedFiles no
+    echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
 fi
 
 # Additional prompt if nvidia packages were installed.

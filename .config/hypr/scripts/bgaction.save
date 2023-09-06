@@ -6,6 +6,7 @@ swww query || swww init
 #figure out which waybar theme is set
 THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
 
+<<<<<<< HEAD
 #show the correct wallpapper based on the theme
 #if [ $THEMEIS == "dark.css" ]; then
 #    swww img ~/.config/hypr/wallpaper-dark.jpg
@@ -14,3 +15,6 @@ THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
 #fi
 
 swww img ~/.config/hypr/wallpaper.jpg
+=======
+swww img ~/Pictures/Wallpapers/wallpaper.jpg
+>>>>>>> ab2124c (refactor and use dotbot)

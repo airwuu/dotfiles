@@ -1,0 +1,38 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+      quiet: true
+
+- clean: ["~", "~/.config"]
+
+- link:
+    ~/.config/Code: .config/Code
+    ~/.config/hypr: .config/hypr
+    ~/.config/kitty: .config/kitty
+    ~/.config/mako: .config/mako
+    ~/.config/pacman: .config/pacman
+    ~/.config/paru: .config/paru
+    ~/.config/swaylock: .config/swaylock
+    ~/.config/starship.toml: .config/starship.toml
+    ~/.config/rofi: .config/rofi
+    ~/.config/Thunar: .config/Thunar
+    ~/.config/Vencord: .config/Vencord
+    ~/.config/waybar: .config/waybar
+    ~/.config/wlogout: .config/wlogout
+    ~/.config/wofi: .config/wofi
+    ~/.config/zsh: .config/zsh
+    ~/.local/scripts: .local/scripts
+    ~/.local/share/fonts: .local/share/fonts
+    ~/Pictures/Wallpapers: assets/wallpapers
+    ~/.gitconfig: .gitconfig
+
+- shell:
+    - [assets/bootstrap/paru.sh, Installing paru]
+    - [assets/bootstrap/packages.sh, Installing packages]
+    - [assets/bootstrap/zgenom.sh, Installing zgenom]
+    - [chsh -s $(which zsh), Making zsh the default shell]

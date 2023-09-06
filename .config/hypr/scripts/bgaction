@@ -3,6 +3,7 @@
 #start swwww
 swww query || swww init
 
+<<<<<<< HEAD
 #figure out which waybar theme is set
 THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
 
@@ -14,3 +15,8 @@ swww img ~/.config/hypr/wallpaper.jpg
 #else
 #    swww img ~/.config/hypr/wallpaper.jpg
 #fi
+=======
+THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+
+swww img ~/Pictures/Wallpaperswallpaper.jpg
+>>>>>>> ab2124c (refactor and use dotbot)

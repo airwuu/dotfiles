@@ -183,6 +183,10 @@ fi
 # Begin installing the packages listed at the beginning of the script.
 read -rep $'[\e[1;33mACTION\e[0m] - Would you like to install the packages? (y,n) ' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
+    # Update core repositories.
+    echo -e "$CNT - Updating core repositories. This may take a while."
+    sudo pacman -Syu
+
     # Install all required packages
     echo -e "$CNT - Prep Stage - Installing necessary packages. This may take a while."
     for SOFTWARE_PACKAGE in ${necessary_packages[@]}; do
@@ -219,6 +223,12 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     for SOFTWARE_PACKAGE in ${optional_packages[@]}; do
         install_software $SOFTWARE_PACKAGE
     done
+
+    # Install Docker
+    echo -e "$CNT - Installing Docker. This may take a while."
+    sudo pacman -S --noconfirm docker
+    sudo systemctl enable --now docker.service &>> $INSTLOG
+    sudo usermod -aG docker $USER
 
     # Start the bluetooth service.
     echo -e "$CNT - Starting the Bluetooth Service."

@@ -6,7 +6,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 50,
-    "modules-left": ["custom/launch_wofi","wlr/workspaces","cpu","memory","disk"],
+    "modules-left": ["custom/launch_wofi","hyprland/workspaces","cpu","memory","disk"],
     "modules-center": ["clock"],
     "modules-right": ["battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
     
@@ -71,22 +71,16 @@
         "tooltip": true
     },
 
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "on-click": "activate",
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
-        }
+	"format": "{id}",
+	"persistent_workspaces": {
+	    "*": 5,
+	},
+	//"format": "{icon}",
+	//"format-icons": {"1":"1", "2":"2", "3":"3", "4":"4", "5":"5", "6":"6", "7":"7", "8":"8", "9":"9" },
     },
     
     "custom/power_profile": {

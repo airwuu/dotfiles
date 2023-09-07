@@ -18,7 +18,7 @@ export ZDOTDIR="${HOME}/.config/zsh"
 # Set zsh shell history file path and set max history length
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export HISTSIZE=10000
-export SAVEHIST=10000
+export SAVEHIST=1000
 
 export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0 # Disable dates in zsh-fzf-history
 export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0 # Disable index in zsh-fzf-history
@@ -31,17 +31,12 @@ export PATH=$PATH:~/.local/scripts:~/.local/bin:~/.local/share/cargo/bin
 export SUDO_PROMPT='[] Enter Password: '
 
 # Set default editor
-export EDITOR='nvim'
+export EDITOR='code'
 
-# execute Hyprland when in TTY1 only
-if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec Hyprland
-fi
+# execute Hyprland
+exec Hyprland
 
-#
 # Auto start ssh-agent and store settings
-#
-
 export SSH_ENV="$HOME/.ssh/env"
 
 function start_agent {
@@ -55,7 +50,7 @@ function start_agent {
 
 if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    # NOTE :: ps ${SSH_AGENT_PID} doesn't work under cywgin
     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
         start_agent;
     }

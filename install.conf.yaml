@@ -17,7 +17,6 @@
     ~/.config/mako: .config/mako
     ~/.config/paru: .config/paru
     ~/.config/swaylock: .config/swaylock
-    ~/.config/starship.toml: .config/starship.toml
     ~/.config/Vencord: .config/Vencord
     ~/.config/waybar: .config/waybar
     ~/.config/wlogout: .config/wlogout
@@ -26,6 +25,9 @@
     ~/.local/scripts: .local/scripts
     ~/.local/share/fonts: .local/share/fonts
     ~/Pictures/Wallpapers: assets/wallpapers
+    ~/.config/starship.toml: .config/starship.toml
+    ~/.zprofile: .config/zsh/.zprofile
+    ~/.zshrc: .config/zsh/.zshrc
     ~/.gitconfig: .gitconfig
 
 - shell:

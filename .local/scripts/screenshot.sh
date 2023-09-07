@@ -3,7 +3,7 @@
 # Screenshot the entire monitor, a selection, or active window
 # and then copies the image to your clipboard. It also saves the image locally.
 
-fileName="Screenshot from $(date '+%y.%m.%d %H:%M:%S').png"
+fileName="$(date '+%y.%m.%d %H:%M:%S').png"
 screenshotDir="$HOME/Pictures/Screenshots"
 path="$screenshotDir/$fileName"
 echo $path
@@ -40,7 +40,6 @@ fileSize=$(wc -c <"$path")
 
 if [ "$fileSize" != 0 ]; then
 	canberra-gtk-play -i camera-shutter &
-	dunstify -i "$path" -a "screenshot" "Screenshot Copied" "Your screenshot has been copied to the clipboard" &
 	wl-copy < "$path"
 	exit 0
 fi

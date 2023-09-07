@@ -11,7 +11,6 @@ conf() {
     zprofile) $EDITOR "$XDG_CONFIG_HOME/zsh/.zprofile" ;;
     zaliases)  $EDITOR "$XDG_CONFIG_HOME/zsh/aliases.zsh" ;;
     zbinds)  $EDITOR "$XDG_CONFIG_HOME/zsh/keybinds.zsh" ;;
-    zlatebinds) $EDITOR "$XDG_CONFIG_HOME/zsh/keybinds-late.zsh" ;;
     zopt)  $EDITOR "$XDG_CONFIG_HOME/zsh/options.zsh" ;;
     zgenom)  $EDITOR "$XDG_CONFIG_HOME/zsh/zgenom.zsh" ;;
     zcomp)  $EDITOR "$XDG_CONFIG_HOME/zsh/compinit.zsh" ;;

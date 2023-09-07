@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 packages=(
-    # core packages
+    # # core packages
     qt5-wayland
     qt5ct
     qt6-wayland
@@ -24,7 +24,11 @@ packages=(
     # nvidia-settings
     # libva
     # libva-nvidia-driver-git
-    # personal packages
+    # # personal packages
+    hyprland
+    zsh
+    zsh-completions
+    fzf
     kitty
     mako
     waybar
@@ -34,17 +38,20 @@ packages=(
     wlogout
     xdg-desktop-portal-hyprland
     swappy
+    wl-clipboard
     grim
     slurp
     thunar
     btop
     thunderbird
     mpv
+    exa
+    bat
     pamixer
     pavucontrol
     brightnessctl
     bluez
-    bluez-utils
+    bluez-utilsp
     blueman
     network-manager-applet
     gvfs
@@ -61,8 +68,9 @@ packages=(
     firefox
     brave-bin
     visual-studio-code-bin
-    zsh
-    zsh-completions
+    discord
+    # # packages to improve screensharing via certain apps
+    xwaylandvideobridge-cursor-mode-2-git
 )
 
 countdown=5  # Set the countdown time in seconds
@@ -76,8 +84,6 @@ done
 
 # Run the update command
 paru -Syu --needed "${packages[@]}"
-
-git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
 
 echo ""
 echo -e "\033[1;33mThere may be some packages that weren't installed that are still mentioned in configs.\033[0m"

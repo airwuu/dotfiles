@@ -69,6 +69,7 @@ packages=(
     brave-bin
     visual-studio-code-bin
     discord
+    docker
     # # packages to improve screensharing via certain apps
     xwaylandvideobridge-cursor-mode-2-git
 )

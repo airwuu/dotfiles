@@ -36,6 +36,12 @@ export EDITOR='code'
 # execute Hyprland
 exec Hyprland
 
+# Services to start on boot-up
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now sddm
+sudo systemctl enable --now docker.service
+
 # Auto start ssh-agent and store settings
 export SSH_ENV="$HOME/.ssh/env"
 

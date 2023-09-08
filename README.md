@@ -19,15 +19,17 @@ Presuming you're starting from a live boot with nothing yet done to your machine
 
 1. Initialize and populate your keys.
 ```sh
-pacman-key --init
-pacman-key --populate archlinux
+$ pacman-key --init
+$ pacman-key --populate archlinux
 ```
-2. Install the latest version of `archinstall`.
+
+2. Run `archinstall` and set-up your machine.
 ```sh
-sudo pacman -S archinstall
+$ archinstall
 ```
-3. Clone this repository and run the installer..
-```
+
+3. Clone this repository and run the installer.
+```sh
 $ git clone https://gitlab.com/toxocious/dotfiles.git && cd dotfiles && ./install
 ```
 

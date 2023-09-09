@@ -51,7 +51,7 @@ packages=(
     pavucontrol
     brightnessctl
     bluez
-    bluez-utilsp
+    bluez-utils
     blueman
     network-manager-applet
     gvfs

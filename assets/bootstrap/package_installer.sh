@@ -51,7 +51,7 @@ packages=(
     pavucontrol
     brightnessctl
     bluez
-    bluez-utilsp
+    bluez-utils
     blueman
     network-manager-applet
     gvfs
@@ -70,6 +70,10 @@ packages=(
     visual-studio-code-bin
     discord
     docker
+    docker-compose
+    npm
+    pnpm
+    noto-fonts-cjk
     # # packages to improve screensharing via certain apps
     xwaylandvideobridge-cursor-mode-2-git
 )

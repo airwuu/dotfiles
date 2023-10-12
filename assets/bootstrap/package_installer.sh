@@ -56,6 +56,7 @@ packages=(
     network-manager-applet
     gvfs
     thunar-archive-plugin
+    neofetch
     file-roller
     starship
     papirus-icon-theme

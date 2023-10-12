@@ -12,4 +12,4 @@ source ${ZDOTDIR}/zgenom.zsh # Source zgenom for plugins
 
 PROMPT='%F{purple}%3~%f $ '
 
-macchina --theme fazzi
+neofetch

@@ -29,7 +29,7 @@
 
   # Override packages
   nixpkgs.config.packageOverrides = pkgs: {
-    colloid-icon-theme = pkgs.colloid-icon-theme.override { colorVariants = ["lavender"]; };
+    colloid-icon-theme = pkgs.colloid-icon-theme.override { colorVariants = ["purple"]; };
     catppuccin-gtk = pkgs.catppuccin-gtk.override {
       accents = [ "lavender" ]; # You can specify multiple accents here to output multiple themes
       size = "standard";

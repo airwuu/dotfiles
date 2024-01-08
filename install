@@ -1,1 +1,19 @@
 #!/usr/bin/env bash
+
+# Copy all files from ./home to $HOME
+echo " - Copying files from ./home to $HOME"
+sudo cp -r home/. $HOME/
+
+# Copy all nix files to /etc/nixos
+echo " - Copying files from ./nixos to /etc/nixos"
+sudo cp -r nixos/. /etc/nixos/
+
+# Notify the user to add their own `hardware-configuration.nix` file.
+echo " - Be sure to add your own 'hardware-configuration.nix' file to /etc/nixos/"
+
+echo " - Building your system."
+
+# Rebuild the system
+sudo nixos-rebuild switch --flake /etc/nixos
+
+echo " - Your system has been built."

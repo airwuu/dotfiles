@@ -1,7 +1,12 @@
 { pkgs, ... }:
 
 {
-  # Fonts
+  fonts.fontconfig.enable = true;
+  
+  # Default fonts
+  fonts.enableDefaultPackages = true;
+  
+  # Third party fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
     nerd-font-patcher

@@ -16,10 +16,7 @@ if [ "$verbose" = true ]; then
     sudo cp -r home/. $HOME/ --verbose
 else
     sudo cp -r home/. $HOME/
-    echo " - cp waybar only"
-    sudo cp -r home/.config/waybar/style.css $HOME/.config/waybar/ --verbose
 fi
-
 
 # Copy all nix files to /etc/nixos
 echo " - Copying files from ./nixos to /etc/nixos"

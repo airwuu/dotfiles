@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
 
+# CLI flags
+verbose=false
+
+while getopts "v" flag; do
+  case $flag in
+    v) verbose=true ;;
+    *) exit 1 ;;
+  esac
+done
+
 # Copy all files from ./home to $HOME
 echo " - Copying files from ./home to $HOME"
-sudo cp -r home/. $HOME/
+if [ "$verbose" = true ]; then
+    sudo cp -r home/. $HOME/ --verbose
+else
+    sudo cp -r home/. $HOME/
+    echo " - cp waybar only"
+    sudo cp -r home/.config/waybar/style.css $HOME/.config/waybar/ --verbose
+fi
+
 
 # Copy all nix files to /etc/nixos
 echo " - Copying files from ./nixos to /etc/nixos"

@@ -1,5 +1,5 @@
 {
-  description = "Jess's NixOS Configuration";
+  description = "Toxocious's NixOS Configuration";
 
   inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -31,17 +31,13 @@
         ./fonts.nix
         ./security-services.nix
         ./services.nix
-        # ./printing.nix
-        # ./gnome.nix
         ./hyprland.nix
         ./environment-variables.nix
         ./bluetooth.nix
         ./networking.nix
-        # ./mac-randomize.nix
         ./open-ssh.nix
         ./firewall.nix
         ./dns.nix
-        # ./vpn.nix
         ./users.nix
         ./virtualisation.nix
         ./programming-languages.nix
@@ -51,6 +47,11 @@
         ./info-fetchers.nix
         ./utils.nix
         ./terminal-utils.nix
+
+        # ./printing.nix
+        # ./gnome.nix
+        # ./mac-randomize.nix
+        # ./vpn.nix
       ];
     };
   };

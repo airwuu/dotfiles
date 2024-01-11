@@ -5,6 +5,7 @@
   environment.variables.GTK_THEME = "Catppuccin-Macchiato-Standard-Lavender-Dark";
   environment.variables.XCURSOR_THEME = "Catppuccin-Macchiato-Lavender";
   environment.variables.XCURSOR_SIZE = "24";
+
   console = {
     earlySetup = true;
     colors = [
@@ -29,14 +30,18 @@
 
   # Override packages
   nixpkgs.config.packageOverrides = pkgs: {
-    colloid-icon-theme = pkgs.colloid-icon-theme.override { colorVariants = ["purple"]; };
+    colloid-icon-theme = pkgs.colloid-icon-theme.override {
+      colorVariants = ["purple"];
+    };
+
     catppuccin-gtk = pkgs.catppuccin-gtk.override {
-      accents = [ "lavender" ]; # You can specify multiple accents here to output multiple themes
+      accents = [ "lavender" ];
       size = "standard";
       variant = "macchiato";
     };
+    
     discord = pkgs.discord.override {
-      withOpenASAR = true;
+      withOpenASAR = false;
       withTTS = true;
     };
   };

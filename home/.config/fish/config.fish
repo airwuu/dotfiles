@@ -14,11 +14,13 @@ alias nau="sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixo
 alias nsgc="sudo nix-store --gc"
 alias ngc="sudo nix-collect-garbage -d"
 
+alias gs="git status"
+
 # if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]
 #   exec Hyprland
 # end
 
-set -gx EDITOR hx
+set -gx EDITOR code
 set -gx VOLUME_STEP 5
 set -gx BRIGHTNESS_STEP 5
 

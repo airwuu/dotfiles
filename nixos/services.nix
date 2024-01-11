@@ -28,7 +28,7 @@
     qt6.qtwayland
     psi-notify
     poweralertd
-    swaylock-effects
+    # swaylock-effects
     swayidle
     playerctl
     psmisc
@@ -46,7 +46,6 @@
     wtype
     wlrctl
     hyprpicker
-    pyprland
     waybar
     rofi-wayland
     dunst

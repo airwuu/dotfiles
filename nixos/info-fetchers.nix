@@ -5,12 +5,6 @@
     neofetch
     btop
 
-    # vulkan-tools
-    # opencl-info
-    # clinfo
-    # vdpauinfo
-    # libva-utils
-    # nvtop
     dig
   ];
 }

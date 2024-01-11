@@ -9,7 +9,7 @@
     nodePackages_latest.typescript
     nodePackages_latest.typescript-language-server
 
-    #Python
+    # Python
     python311Packages.python-lsp-server
 
     marksman # Markdown

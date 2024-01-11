@@ -12,9 +12,9 @@
     packages = with pkgs; [
       spotify
       discord
-      tdesktop
-      vscode
       brave
+      
+      tdesktop
     ];
   };
 

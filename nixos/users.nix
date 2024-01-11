@@ -11,7 +11,7 @@
 
     packages = with pkgs; [
       spotify
-      discord
+      vesktop         # Discord w/ Vencord
       brave
       
       tdesktop

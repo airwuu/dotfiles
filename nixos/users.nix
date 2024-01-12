@@ -13,6 +13,7 @@
       spotify
       vesktop         # Discord w/ Vencord
       brave
+      vscode
 
       rofi
       

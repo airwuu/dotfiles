@@ -13,6 +13,7 @@
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
+
         ./fingerprint-scanner.nix
         ./sound.nix
         ./usb.nix
@@ -47,6 +48,7 @@
         ./info-fetchers.nix
         ./utils.nix
         ./terminal-utils.nix
+	# ./vscode.nix
 
         # ./printing.nix
         # ./gnome.nix

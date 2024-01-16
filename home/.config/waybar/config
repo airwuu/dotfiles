@@ -6,7 +6,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 50,
-    "modules-left": ["custom/launch_rofi","hyprland/workspaces","cpu","memory","disk"],
+    "modules-left": ["hyprland/workspaces","cpu","memory","disk"],
     "modules-center": ["clock"],
     "modules-right": ["battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
     

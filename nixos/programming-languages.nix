@@ -8,6 +8,7 @@
 
     # C/C++
     cmake
+    premake5
 
     # Rust
     rustup

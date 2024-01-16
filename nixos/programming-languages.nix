@@ -7,8 +7,10 @@
     bun
 
     # C/C++
+    gnumake
     cmake
     premake5
+    rocmPackages.llvm.clang
 
     # Rust
     rustup

@@ -18,6 +18,8 @@
       rofi
       
       tdesktop
+
+      bash
     ];
   };
 

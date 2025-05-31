@@ -1,20 +1,9 @@
-{ pkgs, ... }:
-
+{ inputs, pkgs, ... }:
 {
-  # Enable Hyprland
-  programs.hyprland.enable = true;
-  
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
-  environment.systemPackages = with pkgs; [
-    # Terminal
-    wezterm
-    starship
-
-    neovim
-
-    # Utils
-    mpv
-  ];
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 }

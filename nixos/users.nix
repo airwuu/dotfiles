@@ -1,28 +1,11 @@
-{ pkgs, ... }:
-
-{
-  users.users.jess = {
-    isNormalUser = true;
-    description = "jess";
-    
-    extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" "docker" ];
-    
-    shell = pkgs.fish;
-
-    packages = with pkgs; [
-      spotify
-      vesktop         # Discord w/ Vencord
-      brave
-      vscode
-
-      rofi
-      
-      tdesktop
-
-      bash
-    ];
+{ config, pkgs, ... }:
+let username = config.var.username;
+in {
+  users = {
+    users.${username} = {
+      isNormalUser = true;
+      description = "{$username} Account";
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
   };
-
-  # Change runtime directory size
-  services.logind.extraConfig = "RuntimeDirectorySize=8G";
 }

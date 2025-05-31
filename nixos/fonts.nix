@@ -1,25 +1,23 @@
 { pkgs, ... }:
-
 {
-  fonts.fontconfig.enable = true;
-  
-  # Default fonts
-  fonts.enableDefaultPackages = true;
-  
-  # Third party fonts
-  fonts.packages = with pkgs; [
-    jetbrains-mono
+  fonts = {
+    packages = with pkgs; [
+      roboto
+      inter
 
-    nerdfonts
-    nerd-font-patcher
+      comic-neue
+ 
+      work-sans
+      source-sans
+ 
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+ 
+      nerd-fonts.fira-code
+      nerd-fonts.meslo-lg
+    ];
 
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-
-    fira-code
-    fira-code-symbols
-    
-    liberation_ttf
-  ];
+    enableDefaultPackages = false;
+  };
 }

@@ -2,45 +2,18 @@
 
 <!-- <img src="assets/preview.png" alt="Rice Showcase" align="right" width="450"> -->
 
-- **Operating System:** [arch](https://archlinux.org/)
-- **Compositor:** [Hyprland](https://github.com/hyprwm/Hyprland)
-- **Terminal Emulator:** [Kitty](https://github.com/kovidgoyal/kitty)
-- **Status Bar:** [waybar](https://github.com/Alexays/Waybar/)
-- **App Launcher:** [rofi](https://github.com/lbonn/rofi)
-- **Notification Daemon:** [mako](https://github.com/emersion/mako)
-- **Shell:** [zsh](https://www.zsh.org/)
-- **Shell Plugin Manager:** [zgenom](https://github.com/jandamm/zgenom)
-- **Browser:** [Brave](https://brave.com/)
-
 
 
 ## ✔️ Installation
-Presuming you're starting from a live boot with nothing yet done to your machine, the steps are as follows:
+Presuming you're starting from a live boot with nothing yet done to your machine, you'll want to install NixOS on your machine from a **minimal installation**.
 
-1. Initialize and populate your keys.
-```sh
-$ pacman-key --init
-$ pacman-key --populate archlinux
-```
+Once done, clone the repository.
 
-2. Run `archinstall` and set-up your machine.
 ```sh
-$ archinstall
-```
-
-3. Clone this repository and run the installer.
-```sh
-$ git clone https://gitlab.com/toxocious/dotfiles.git && cd dotfiles && ./install
+$ git clone https://gitlab.com/toxocious/dotfiles.git
 ```
 
 Ths install script will likely take several minutes.
 
-The installer will create symlinks and overwrite files. It will also install all packages from the pacakges listed in [package_installer.sh](assets/bootstrap/package_installer.sh).
+The installer will create symlinks and overwrite existing files.
 > Please backup your current configs before installing.
-
-After the script has installed all of the listed packages and has copied over the designated config files, it's recommended that you manually update certain configs to your liking, such as `hyprland.conf` to update your monitor config.
-
-
-
-## 🖥️ Wallpapers
-[Wallpaper Folder](https://gitlab.com/toxocious/dotfiles/-/tree/main/assets/wallpapers "wallpapers folder")

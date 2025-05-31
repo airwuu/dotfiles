@@ -1,0 +1,38 @@
+{ pkgs, config, ... }:
+{
+  imports = [
+    # User Specific Config
+    ./variables.nix
+  ];
+
+  home = {
+    # Set the home directory path for our user
+    inherit (config.var) username;
+    homeDirectory = "/home/" + config.var.username;
+
+    # Packages
+    packages = with pkgs; [
+      # Apps
+      brave
+
+      # Development - Languages
+      nodejs
+      python3
+
+      # Development - IDE
+      vscode
+      
+      # Utilities
+      zip
+      unzip
+      btop
+      neofetch
+      tree
+    ];
+
+     # State version - don't touch this
+     stateVersion = "24.11";
+  };
+
+  programs.home-manager.enable = true;
+}

@@ -1,3 +1,11 @@
+# Check if hostname argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <hostname>"
+  exit 1
+fi
+
+HOSTNAME=$1
+
 # Create base directories that will be used later.
 echo "Creating core directories in ${HOME}"
 mkdir -p ~/Documents
@@ -21,5 +29,5 @@ echo " - Copying complete."
 echo ""
 
 # Rebuild nixos
-echo "Rebuilding nixos using the flake"
-sudo nixos-rebuild switch --flake ~/.config/nixos#nix
+echo "Rebuilding nixos using the flake with hostname: $HOSTNAME"
+sudo nixos-rebuild switch --flake ~/.config/nixos#$HOSTNAME

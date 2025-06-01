@@ -3,6 +3,22 @@
   imports = [
     # User Specific Config
     ./variables.nix
+
+    # Programs
+    ../../home/programs/discord
+    ../../home/programs/git
+    ../../home/programs/ghostty
+
+    # Scripts
+
+    # System
+    ../../home/system/hyprpaper
+    ../../home/system/hyprland
+    ../../home/system/hyprpanel
+    ../../home/system/hypridle
+    ../../home/system/hyprlock
+    ../../home/system/cursor
+    ../../home/system/launcher
   ];
 
   home = {
@@ -25,14 +41,15 @@
       # Utilities
       zip
       unzip
+      tree
       btop
       neofetch
-      tree
     ];
 
      # State version - don't touch this
      stateVersion = "24.11";
   };
 
+  # Enable Home Manager
   programs.home-manager.enable = true;
 }

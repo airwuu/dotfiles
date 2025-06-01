@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   config.var = {
-    hostname = "athena";
+    hostname = "artemis";
     username = "jess";
 
     # Upgrade/GC opt-ins

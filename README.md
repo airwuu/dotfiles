@@ -13,6 +13,11 @@ Once done, clone the repository.
 $ git clone https://gitlab.com/toxocious/dotfiles.git
 ```
 
+## Notice
+**Do NOT run the installation script as an administrator.**
+
+Doing so will cause directories to potentially be created in the wrong place.
+
 Ths install script will likely take several minutes.
 
 The installer will create symlinks and overwrite existing files.

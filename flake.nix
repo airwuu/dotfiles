@@ -33,7 +33,7 @@
         system = "x86_64-linux";
         modules = [
           {
-	          nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
             _module.args = { inherit inputs; };
           }
 
@@ -52,7 +52,7 @@
         system = "x86_64-linux";
         modules = [
           {
-	          nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
             _module.args = { inherit inputs; };
           }
 

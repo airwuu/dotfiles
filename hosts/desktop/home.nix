@@ -37,7 +37,7 @@
 
       # Development - IDE
       vscode
-      
+
       # Utilities
       zip
       unzip
@@ -52,4 +52,5 @@
 
   # Enable Home Manager
   programs.home-manager.enable = true;
+  programs.home-manager.nixVersions.stable = true;
 }

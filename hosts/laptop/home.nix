@@ -49,8 +49,4 @@
      # State version - don't touch this
      stateVersion = "24.11";
   };
-
-  # Enable Home Manager
-  programs.home-manager.enable = true;
-  programs.home-manager.nixVersions.stable = true;
 }

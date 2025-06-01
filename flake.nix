@@ -29,7 +29,7 @@
   outputs = inputs@{ nixpkgs, ... }:
   {
     nixosConfigurations = {
-      nix = nixpkgs.lib.nixosSystem {
+      athena = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
@@ -45,7 +45,26 @@
 
           inputs.home-manager.nixosModules.home-manager
           ./hosts/desktop/configuration.nix
-        ];        
+        ];
+      };
+
+      artemis = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+	          nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            _module.args = { inherit inputs; };
+          }
+
+          {
+            environment.systemPackages = [
+
+            ];
+          }
+
+          inputs.home-manager.nixosModules.home-manager
+          ./hosts/desktop/configuration.nix
+        ];
       };
     };
   };

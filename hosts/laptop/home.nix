@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 {
     imports = [
         # User Specific Config
@@ -46,6 +46,9 @@
         neofetch
         ];
 
+        # Nix PM Version
+        nix.package = pkgs.nixVersions.latest;
+
         # State version - don't touch this
         stateVersion = "24.11";
     };
@@ -53,6 +56,6 @@
     # Enable Home Manager
     programs.home-manager = {
         enable = true;
-        nixVersions.stable = true;
+        # nixVersions.stable = true;
     };
 }

@@ -24,6 +24,9 @@
   # Setup Home Manager for our user
   home-manager.users."${config.var.username}" = import ./home.nix;
 
+  # Nix PM Version
+  nix.package = pkgs.nixVersions.latest;
+
   # NixOS Version - Don't Change
   system.stateVersion = "24.11";
 }

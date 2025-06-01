@@ -46,9 +46,6 @@
         neofetch
         ];
 
-        # Nix PM Version
-        nix.package = pkgs.nixVersions.latest;
-
         # State version - don't touch this
         stateVersion = "24.11";
     };

@@ -63,7 +63,7 @@
           }
 
           inputs.home-manager.nixosModules.home-manager
-          ./hosts/desktop/configuration.nix
+          ./hosts/laptop/configuration.nix
         ];
       };
     };

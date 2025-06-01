@@ -7,8 +7,4 @@
 
     extraSpecialArgs = { inherit inputs; };
   };
-
-  # Enable Home Manager
-  programs.home-manager.enable = true;
-  programs.home-manager.nixVersions.stable = true;
 }

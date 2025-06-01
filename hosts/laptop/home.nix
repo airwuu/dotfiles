@@ -53,5 +53,6 @@
     # Enable Home Manager
     programs.home-manager = {
         enable = true;
+        nixVersions.stable = true;
     };
 }

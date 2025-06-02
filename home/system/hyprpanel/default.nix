@@ -108,6 +108,7 @@
                 "bar.network.truncation_size": 12,
 
                 "bar.bluetooth.label": false,
+                "bar.battery.label": false,
 
                 "bar.media.show_active_only": true,
 

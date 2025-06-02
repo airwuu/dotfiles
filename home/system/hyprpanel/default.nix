@@ -5,7 +5,7 @@
     programs.hyprpanel = {
         enable = true;
         hyprland.enable = true;
-        overwrite.enable = true;
+        overwrite.enable = false;
         overlay.enable = true;
         systemd.enable = true;
 

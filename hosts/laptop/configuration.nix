@@ -21,9 +21,6 @@
     ./variables.nix
   ];
 
-  # Set kernel package to LTS
-  boot.kernelPackages = pkgs.linuxPackages_lts;
-
   # Setup Home Manager for our user
   home-manager.users."${config.var.username}" = import ./home.nix;
 

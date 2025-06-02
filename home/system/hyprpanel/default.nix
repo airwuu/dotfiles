@@ -15,6 +15,15 @@
 
         # # General settings
         settings = {
+            bar = {
+                workspaces.show_numbered = false;
+                workspaces.workspaces = 9;
+                workspaces.numbered_active_indicator = "color";
+                workspaces.monitorSpecific = false;
+                workspaces.showApplicationIcons = true;
+                workspaces.showWsIcons = true;
+            };
+
             layout = {
                 "bar" = {
                     "scaling" = 1.0;
@@ -37,14 +46,6 @@
             {
                 "bar.clock.format": "%b %d %I:%M %p",
                 "bar.clock.showIcon": false,
-
-                "bar.workspaces.show_numbered": false,
-                "bar.workspaces.showAllActive": false,
-                "bar.workspaces.workspaces": 0,
-                "bar.workspaces.numbered_active_indicator": "color",
-                "bar.workspaces.monitorSpecific": false,
-                "bar.workspaces.showApplicationIcons": true,
-                "bar.workspaces.showWsIcons": true,
 
                 "bar.windowtitle.label": true,
 

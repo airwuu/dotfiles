@@ -93,8 +93,8 @@
                 "bar.clock.showIcon": false,
 
                 "bar.workspaces.show_numbered": false,
-                "bar.workspaces.showAllActive": true,
-                "bar.workspaces.workspaces": 9,
+                "bar.workspaces.showAllActive": false,
+                "bar.workspaces.workspaces": 0,
                 "bar.workspaces.numbered_active_indicator": "color",
                 "bar.workspaces.monitorSpecific": false,
                 "bar.workspaces.showApplicationIcons": true,

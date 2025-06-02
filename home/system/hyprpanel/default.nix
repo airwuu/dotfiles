@@ -20,15 +20,15 @@
                 font.size = "12";
 
                 bar = {
-                transparent = true;
-                floating = true;
+                    transparent = true;
+                    floating = true;
 
-                location = "top";
-                buttons.padding_x = "0.8rem";
-                buttons.padding_y = "0.4rem";
+                    location = "top";
+                    buttons.padding_x = "0.8rem";
+                    buttons.padding_y = "0.4rem";
 
-                buttons.monochrome = true;
-                menus.monochrome = true;
+                    buttons.monochrome = true;
+                    menus.monochrome = true;
                 };
             };
 
@@ -40,10 +40,10 @@
                 workspaces.showApplicationIcons = true;
                 workspaces.showWsIcons = true;
 
-                clock = {
-                    format = "%b %d %I:%M %p";
-                    showIcon = false;
-                };
+                # clock = {
+                #     format = "%b %d %I:%M %p";
+                #     showIcon = false;
+                # };
 
                 windowtitle = {
                     label = true;
@@ -85,5 +85,14 @@
                 };
             };
         };
+    };
+
+    home.file = {
+        "/home/" + config.var.username + "/.config/hyprpanel/config.json".text = ''
+            {
+                "bar.clock.format": "%b %d %I:%M %p",
+                "bar.clock.showIcon": false
+            }
+        '';
     };
 }

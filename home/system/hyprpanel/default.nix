@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ inputs, config, pkgs, ... }:
 {
     imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 

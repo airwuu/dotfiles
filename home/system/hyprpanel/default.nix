@@ -131,7 +131,7 @@
                 "theme.bar.buttons.padding_x": "0.8rem",
                 "theme.bar.buttons.padding_y": "0.4rem",
                 "theme.bar.buttons.monochrome": true,
-                "theme.bar.menus.monochrome": true,
+                "theme.bar.menus.monochrome": true
             }
         '';
     };

@@ -88,7 +88,7 @@
     };
 
     home.file = {
-        "/home/" + config.var.username + "/.config/hyprpanel/config.json".text = ''
+        "/home/${config.var.username}/.config/hyprpanel/config.json".text = ''
             {
                 "bar.clock.format": "%b %d %I:%M %p",
                 "bar.clock.showIcon": false

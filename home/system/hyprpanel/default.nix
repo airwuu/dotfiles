@@ -87,7 +87,7 @@
     };
 
     home.file = {
-        "/home/${config.var.username}/.config/hyprpanel/config.json".text = ''
+        ".config/hyprpanel/custom-settings.json".text = ''
             {
                 "bar.clock.format": "%b %d %I:%M %p",
                 "bar.clock.showIcon": false,
@@ -128,4 +128,13 @@
             }
         '';
     };
+
+    # Script to merge configs after activation
+    home.activation.mergeHyprpanelConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+        ${pkgs.jq}/bin/jq -s '.[0] * .[1]' \
+            ~/.config/hyprpanel/config.json \
+            ~/.config/hyprpanel/custom-settings.json \
+            > ~/.config/hyprpanel/config.json.tmp && \
+        mv ~/.config/hyprpanel/config.json.tmp ~/.config/hyprpanel/config.json
+    '';
 }

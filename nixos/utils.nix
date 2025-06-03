@@ -128,6 +128,9 @@ in
 
     # Don't ask for password if in the wheel group
     sudo.wheelNeedsPassword = false;
+
+    # Enable Polkit
+    polkit.enable = true;
   };
 
   # Don't shutdown when the power button is short-pressed

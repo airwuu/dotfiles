@@ -13,7 +13,6 @@ in
   imports = [
     ./animations.nix
     ./bindings.nix
-    ./polkit-agent.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,12 +24,13 @@ in
     wayland-utils
     wayland-protocols
 
+    hyprpolkitagent
     hyprshot
     hyprpicker
- 
+
     wlr-randr
     wl-clipboard
-   
+
     libva
     dconf
     glib
@@ -57,15 +57,16 @@ in
 
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
+        "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hyprpaper.service &"
         "systemctl --user enable --now hypridle.service &"
-	"hyprctl setcursor phinger-cursors-light 14"
+	    "hyprctl setcursor phinger-cursors-light 14"
         "hyprpaper &"
       ];
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
-	",prefered,auto,1" #Default everything
+	    ",prefered,auto,1" #Default everything
       ];
 
       env = [

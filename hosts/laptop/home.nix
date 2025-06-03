@@ -28,22 +28,23 @@
 
         # Packages
         packages = with pkgs; [
-        # Apps
-        brave
+            # Apps
+            brave
 
-        # Development - Languages
-        nodejs
-        python3
+            # Development - Languages/Tools
+            premake5
+            nodejs
+            python3
 
-        # Development - IDE
-        vscode
+            # Development - IDE
+            vscode
 
-        # Utilities
-        zip
-        unzip
-        tree
-        btop
-        neofetch
+            # Utilities
+            zip
+            unzip
+            tree
+            btop
+            neofetch
         ];
 
         # State version - don't touch this

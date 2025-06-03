@@ -44,7 +44,7 @@
     home.file = {
         ".config/hyprpanel/custom-settings.json".text = ''
             {
-                "bar.clock.format": "%b %d %I:%M %p",
+                "bar.clock.format": "%b %d %I:%M %p ",
                 "bar.clock.showIcon": false,
 
                 "bar.windowtitle.label": true,
@@ -64,14 +64,17 @@
                 "notifications.position": "top right",
                 "notifications.showActionsOnHover": true,
 
+                "menus.dashboard.directories.enabled": false,
+
                 "theme.font.size": "12",
                 "theme.bar.transparent": true,
                 "theme.bar.floating": true,
                 "theme.bar.location": "top",
+                "theme.bar.margin_sides": "-1rem",
                 "theme.bar.buttons.padding_x": "0.8rem",
                 "theme.bar.buttons.padding_y": "0.4rem",
-                "theme.bar.buttons.monochrome": true,
-                "theme.bar.menus.monochrome": true
+                "theme.bar.buttons.monochrome": false,
+                "theme.bar.menus.monochrome": false
             }
         '';
     };

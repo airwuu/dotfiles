@@ -12,7 +12,7 @@ mkdir -p ~/Documents
 mkdir -p ~/Downloads
 mkdir -p ~/Pictures
 mkdir -p ~/Pictures/Wallpapers
-sudo cp ./assets/wallpapers/. ~Pictures/Wallpapers
+sudo cp -r ./assets/wallpapers/. ~Pictures/Wallpapers
 mkdir -p ~/Videos
 echo " - Core directories have been created"
 echo ""
@@ -20,6 +20,7 @@ echo ""
 # Backing up nixos hardware configuration.
 echo "Backing up your NixOS Hardware Configuration"
 sudo cp /etc/nixos/hardware-configuration.nix /etc/nixos/hardware-configuration.nix.bak
+sudo mv $HOME/.config/hyprpanel/config.json.hm-backup $HOME/.config/hyprpanel/config.json.hm-backup.bak
 echo " - Backup complete (/etc/nixos/hardware-configuration.nix.bak)"
 echo ""
 

@@ -2,7 +2,7 @@
   #
 
   description = ''
-    Personal dotfiles for using Hyprland on NixOS.
+    Personal dotfiles for using Hyprland with QuickShell on NixOS.
     Intended to be modular for easy customizability.
   '';
 
@@ -20,13 +20,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, ... }:
+  outputs = inputs@{ nixpkgs, quickshell, ... }:
   {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
@@ -58,7 +63,7 @@
 
           {
             environment.systemPackages = [
-
+              quickshell.packages.x86_64-linux.default
             ];
           }
 

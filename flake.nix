@@ -2,7 +2,7 @@
   #
 
   description = ''
-    Personal dotfiles for using Hyprland on NixOS.
+    Personal dotfiles for using Hyprland with QuickShell on NixOS.
     Intended to be modular for easy customizability.
   '';
 
@@ -17,6 +17,11 @@
 
     anyrun = {
       url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

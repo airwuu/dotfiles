@@ -20,6 +20,7 @@
         ../../home/system/cursor
         ../../home/system/launcher
 	../../home/system/quickshell
+	../../home/system/fish-shell
     ];
 
     home = {

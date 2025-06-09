@@ -19,6 +19,7 @@
         ../../home/system/hyprlock
         ../../home/system/cursor
         ../../home/system/launcher
+	../../home/system/quickshell
     ];
 
     home = {

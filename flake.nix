@@ -31,7 +31,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, ... }:
+  outputs = inputs@{ nixpkgs, quickshell, ... }:
   {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
@@ -63,7 +63,7 @@
 
           {
             environment.systemPackages = [
-
+              quickshell.packages.x86_64-linux.default
             ];
           }
 

@@ -12,7 +12,7 @@ mkdir -p ~/Documents
 mkdir -p ~/Downloads
 mkdir -p ~/Pictures
 mkdir -p ~/Pictures/Wallpapers
-sudo cp ./assets/wallpapers/. ~Pictures/Wallpapers
+sudo cp -r ./assets/wallpapers/. ~Pictures/Wallpapers
 mkdir -p ~/Videos
 echo " - Core directories have been created"
 echo ""

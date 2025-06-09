@@ -10,11 +10,11 @@
       splash_offset = 2.0;
 
       preload = [
-        "$HOME/Pictures/Wallpapers/akatsuki-no-hana.jpeg"
+        "$HOME/Pictures/Wallpapers/frieren_.jpg"
       ];
 
       wallpaper = [
-        ",$HOME/Pictures/Wallpapers/akatsuki-no-hana.jpeg"
+        ",$HOME/Pictures/Wallpapers/frieren_.jpg"
       ];
     };
   };

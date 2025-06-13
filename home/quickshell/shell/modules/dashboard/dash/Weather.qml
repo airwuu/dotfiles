@@ -44,7 +44,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             animate: true
-            text: `${Weather.temperature}°C`
+            text: `${Weather.temperature}°F`
             color: Colours.palette.m3primary
             font.pointSize: Appearance.font.size.extraLarge
             font.weight: 500

@@ -65,6 +65,12 @@ in
 
   # Nvidia configuration
   hardware = {
+    opengl = {
+      enable = true;
+
+      driSupport32Bit = true;
+    };
+    
     nvidia = {
       open = false;
       nvidiaSettings = true;

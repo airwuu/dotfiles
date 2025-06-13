@@ -12,6 +12,7 @@
         ../../home/system/fish-shell
         ../../home/system/neofetch
         ../../home/system/git
+        ../../home/system/java
 
         # Programs
         ../../home/programs/discord
@@ -21,7 +22,6 @@
         # Shell
         ../../home/quickshell
     ];
-
 
     home = {
         # Set the home directory path for our user
@@ -62,28 +62,6 @@
         # State version - don't touch this
         stateVersion = "24.11";
     };
-
-    # GTK Configuration
-    # gtk = {
-    #     enable = true;
-
-    #     theme = {
-    #         name = "Catppuccin-Mocha-Dark";
-    #         package = pkgs.catppuccin-gtk;
-    #     };
-
-    #     iconTheme = {
-    #       name = "Papirus-Dark"; # Or a Catppuccin icon theme if available and preferred
-    #       package = pkgs.papirus-icon-theme; # Or pkgs.catppuccin-icons
-    #     };
-
-    #     gtk3.extraConfig = {
-    #         gtk-application-prefer-dark-theme = 1;
-    #     };
-    #     gtk4.extraConfig = {
-    #         gtk-application-prefer-dark-theme = 1;
-    #     };
-    # };
 
     # Enable Home Manager
     programs.home-manager = {

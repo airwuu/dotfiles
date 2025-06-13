@@ -12,6 +12,7 @@
         ../../home/system/fish-shell
         ../../home/system/neofetch
         ../../home/system/git
+        ../../home/system/java
 
         # Programs
         ../../home/programs/discord
@@ -62,26 +63,8 @@
         stateVersion = "24.11";
     };
 
-    # GTK Configuration
-    # gtk = {
-    #     enable = true;
-
-    #     theme = {
-    #         name = "Catppuccin-Mocha-Dark";
-    #         package = pkgs.catppuccin-gtk;
-    #     };
-
-    #     gtk3.extraConfig = {
-    #         gtk-application-prefer-dark-theme = 1;
-    #     };
-    #     gtk4.extraConfig = {
-    #         gtk-application-prefer-dark-theme = 1;
-    #     };
-    # };
-
     # Enable Home Manager
     programs.home-manager = {
         enable = true;
-        # nixVersions.stable = true;
     };
 }

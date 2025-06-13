@@ -15,8 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,6 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     nixcord.url = "github:kaylorben/nixcord";
   };
@@ -38,7 +37,7 @@
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
           }
 
@@ -57,7 +56,7 @@
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
           }
 

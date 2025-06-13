@@ -80,7 +80,7 @@ in
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "nano";
     TERMINAL = "ghostty";
-    TERM = "ghosty";
+    TERM = "ghostty";
     BROWSER = "brave";
   };
   environment.systemPackages = with pkgs; [

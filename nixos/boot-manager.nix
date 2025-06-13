@@ -36,7 +36,7 @@
                 efiSupport = false;
                 splashImage = null;
 
-                device = "/dev/nvme0n1";
+                device = "/dev/sda";
             };
         };
 

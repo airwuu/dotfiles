@@ -10,10 +10,13 @@
       work-sans
       source-sans
  
+      material-symbols
+
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
- 
+
+      nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.meslo-lg
     ];

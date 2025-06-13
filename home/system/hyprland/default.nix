@@ -1,11 +1,11 @@
 { pkgs, config, inputs, lib, ... }:
 let
   border-size = "2";
-  gaps-in = "8";
-  gaps-out = "8";
+  gaps-in = "6";
+  gaps-out = "6";
   active-opacity = "1.0";
   inactive-opacity = "0.69";
-  rounding = "8";
+  rounding = "17";
   blur = true;
   keyboardLayout = config.var.keyboardLayout;
 in
@@ -58,15 +58,15 @@ in
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
-        "systemctl --user enable --now hyprpaper.service &"
         "systemctl --user enable --now hypridle.service &"
-	    "hyprctl setcursor phinger-cursors-light 14"
-        "hyprpaper &"
+	      "hyprctl setcursor phinger-cursors-light 14"
+        "qs -c caelestia &"
       ];
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
-	    ",prefered,auto,1" #Default everything
+	      # ",prefered,auto,1" #Default everything
+        ",1920x1080,auto,1"
       ];
 
       env = [
@@ -79,6 +79,7 @@ in
        "XDG_SESSION_DESKTOP,Hyprland"
        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
        "QT_QPA_PLATFORM=wayland,xcb"
+       "QT_QPA_PLATFORMTHEME=qt6ct"
        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
        "ELECTRON_OZONE_PLATFORM_HINT,auto"
        "__GL_GSYNC_ALLOWED,1"
@@ -130,18 +131,27 @@ in
 
       misc = {
         vfr = true;
-        disable_hyprland_logo = false;
-        disable_splash_rendering = false;
+        vrr = 1;
+
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
         disable_autoreload = false;
+        
         focus_on_activate = true;
+        
         new_window_takes_over_fullscreen = 2;
+
+        middle_click_paste = false;
       };
 
       layerrule = [ "noanim, launcher" "noanim, ^args-.*" ];
-
+      
       input = {
         kb_layout = keyboardLayout;
-        # kb_options = "caps:escape";
+
+        # Allow scroll wheel press for scrolling.
+        scroll_method = "on_button_down";
+        scroll_button = 274;
 
         follow_mouse = 1;
         sensitivity = 1;

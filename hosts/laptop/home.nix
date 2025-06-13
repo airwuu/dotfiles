@@ -11,11 +11,12 @@
         ../../home/system/cursor
         ../../home/system/fish-shell
         ../../home/system/neofetch
+        ../../home/system/git
 
         # Programs
         ../../home/programs/discord
-        ../../home/system/git
         ../../home/programs/ghostty
+        ../../home/programs/spicetify
 
         # Shell
         ../../home/quickshell

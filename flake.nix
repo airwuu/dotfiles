@@ -25,12 +25,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, quickshell, ... }:
+  outputs = inputs@{ nixpkgs, quickshell, spicetify-nix, ... }:
   {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {

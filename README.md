@@ -30,11 +30,11 @@ Once done, rebuild your machine afterwards so that you can clone this repository
 We expect this repository to be cloned into `$HOME/.config/nixos`.
 
 ```sh
-$ git clone https://gitlab.com/toxocious/dotfiles.git $HOME/.config/nixos --branch NixOS
+$ git clone https://github.com/toxocious/dotfiles.git $HOME/.config/nixos --branch NixOS
 ```
 
 
-There are two included hosts that you need to be mindful of; one for a desktop configuration and one for a laptop configuration. 
+There are two included hosts that you need to be mindful of; one for a desktop configuration and one for a laptop configuration.
 
 While it isn't *required*, it's strongly advised that you take a look at either of them and modify them to your needs.
 

@@ -4,23 +4,23 @@
         # User Specific Config
         ./variables.nix
 
-        # Programs
-        ../../home/programs/discord
-        ../../home/programs/git
-        ../../home/programs/ghostty
-
-        # Scripts
-
         # System
-        ../../home/system/hyprpaper
         ../../home/system/hyprland
-        ../../home/system/hyprpanel
         ../../home/system/hypridle
         ../../home/system/hyprlock
         ../../home/system/cursor
-        ../../home/system/launcher
-	../../home/system/quickshell
-	../../home/system/fish-shell
+        ../../home/system/fish-shell
+        ../../home/system/neofetch
+        ../../home/system/git
+        ../../home/system/java
+
+        # Programs
+        ../../home/programs/discord
+        ../../home/programs/ghostty
+        ../../home/programs/spicetify
+
+        # Shell
+        ../../home/quickshell
     ];
 
     home = {
@@ -42,11 +42,21 @@
             vscode
 
             # Utilities
+            grc
             zip
             unzip
             tree
             btop
+            fish
             neofetch
+            gtk3
+
+            # Misc
+            cava
+            bluez
+            ddcutil
+            brightnessctl
+            imagemagick
         ];
 
         # State version - don't touch this
@@ -56,6 +66,5 @@
     # Enable Home Manager
     programs.home-manager = {
         enable = true;
-        # nixVersions.stable = true;
     };
 }

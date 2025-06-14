@@ -15,8 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,20 +25,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, quickshell, ... }:
+  outputs = inputs@{ nixpkgs, quickshell, spicetify-nix, ... }:
   {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
           }
 
@@ -57,7 +61,7 @@
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+            nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
           }
 

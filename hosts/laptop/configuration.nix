@@ -13,6 +13,7 @@
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
     ../../nixos/virtualization.nix
+    ../../nixos/gaming.nix
 
     # Machine-specific hardware configuration
     ./hardware-configuration.nix

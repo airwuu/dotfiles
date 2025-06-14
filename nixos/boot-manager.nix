@@ -1,47 +1,53 @@
 { config, pkgs, lib, ... }:
 {
-    # services.xserver.videoDrivers = [ ];
+    environment.etc = {
+      "issue" = {
+        text = "[?12l[?25h";
+        mode = "0444";
+      };
+    };
 
     console = {
-        earlySetup = false;
+      earlySetup = false;
     };
 
     boot = {
-        consoleLogLevel = 0;
+      kernelParams = lib.mkBefore [
+        "logo.nologo"
+        "fbcon=nodefer"
+        "bgrt_disable"
+        "vt.global_cursor_default=0"
+        "quiet"
+        "systemd.show_status=false"
+        "loglevel=3"
+        "udev.log_level=3"
+        "udev.log_priority=3"
+        "rd.udev.log_level=3"
+        "splash"
+      ];
 
-        plymouth = {
+      consoleLogLevel = 3;
+
+      initrd = {
+        verbose = false;
+        systemd.enable = true;
+      };
+
+      loader = {
+        grub.extraConfig = ''
+            GRUB_TIMEOUT_STYLE=hidden
+            GRUB_HIDDEN_TIMEOUT_QUIET=true
+          '';
+        timeout = 0;
+
+        grub = {
             enable = true;
+            useOSProber = false;
+            efiSupport = false;
+            splashImage = null;
 
-            theme = "breeze";
-            themePackages = with pkgs; [
-                plymouth (kdePackages.breeze-plymouth.override { })
-            ];
+            device = "/dev/sda";
         };
-
-        initrd = {
-            verbose = false;
-            kernelModules = [ ];
-        };
-
-        loader = {
-            timeout = 0;
-
-            systemd-boot.enable = false;
-
-            efi.canTouchEfiVariables = true;
-
-            grub = {
-                enable = true;
-                useOSProber = false;
-                efiSupport = false;
-                splashImage = null;
-
-                device = "/dev/nvme0n1";
-            };
-        };
-
-        kernelParams = [
-
-        ];
+      };
     };
 }

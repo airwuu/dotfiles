@@ -22,11 +22,15 @@
     ./variables.nix
   ];
 
-  # Setup Home Manager for our user
-  home-manager.users."${config.var.username}" = import ./home.nix;
+  nix.settings = {
+    download-buffer-size = 134217728;
+  };
 
   # Nix PM Version
   nix.package = pkgs.nixVersions.latest;
+
+  # Setup Home Manager for our user
+  home-manager.users."${config.var.username}" = import ./home.nix;
 
   # NixOS Version - Don't Change
   system.stateVersion = "24.11";

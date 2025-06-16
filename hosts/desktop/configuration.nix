@@ -23,6 +23,13 @@
     ./variables.nix
   ];
 
+  nix.settings = {
+    download-buffer-size = 134217728;
+  };
+
+  # Nix PM Version
+  nix.package = pkgs.nixVersions.latest;
+
   # Setup Home Manager for our user
   home-manager.users."${config.var.username}" = import ./home.nix;
 

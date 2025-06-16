@@ -2,15 +2,15 @@
 
 let
   # Caelestia scripts derivation with Python shebang fixes
-  caelestia-scripts = pkgs.stdenv.mkDerivation rec {
-    pname = "caelestia-scripts";
+  caelestia-cli = pkgs.stdenv.mkDerivation rec {
+    pname = "caelestia-cli";
     version = "unstable-2024-01-07";
 
     src = pkgs.fetchFromGitHub {
       owner = "caelestia-dots";
-      repo = "scripts";
-      rev = "4fe6ff22f6def77f30170c007c185685a13a9a2e";
-      sha256 = "sha256-S9ThMthVObC3C5zkUKE4RfRvMbz1GDuYUXs7U49nEXA=";
+      repo = "cli";
+      rev = "9da9d7bb1b254d5d94265bda5e052ca4feee1b9a";
+      sha256 = "sha256-ehWY/xdv08PJr1QFOPWCG+5/oFtakmMVKOzpg6Z+CXM=";
     };
 
     nativeBuildInputs = with pkgs; [

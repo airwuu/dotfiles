@@ -8,12 +8,12 @@
       source = ./shell;
       recursive = true;
     };
-    
+
     # Fish completions (our fixed version)
     "fish/completions/caelestia.fish" = {
       source = ./caelestia-completions.fish;
     };
-    
+
     # Your custom scripts.json for toggle workspaces
     "caelestia/scripts.json" = {
       source = ./shell/scripts.json;
@@ -24,7 +24,7 @@
   xdg.dataFile = {
     # Scripts directory (from the packaged scripts)
     "caelestia/scripts" = {
-      source = "${config.programs.quickshell.caelestia-scripts}/share/caelestia-scripts";
+      source = "${config.programs.quickshell.caelestia-cli}/share/caelestia-cli";
       recursive = true;
     };
   };
@@ -44,7 +44,7 @@
     mkdir -p ${config.xdg.stateHome}/caelestia/scheme
     mkdir -p ${config.xdg.cacheHome}/caelestia/thumbnails
     mkdir -p ${config.xdg.configHome}/caelestia
-    
+
     # Ensure state files are writable (fix permission issues)
     if [ -d ${config.xdg.stateHome}/caelestia/scheme ]; then
       find ${config.xdg.stateHome}/caelestia/scheme -name "*.txt" -exec chmod u+w {} \; 2>/dev/null || true

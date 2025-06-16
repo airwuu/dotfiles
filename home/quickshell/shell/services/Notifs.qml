@@ -4,6 +4,7 @@ pragma ComponentBehavior: Bound
 import "root:/widgets"
 import "root:/config"
 import Quickshell
+import Quickshell.Io
 import Quickshell.Services.Notifications
 import QtQuick
 
@@ -12,6 +13,8 @@ Singleton {
 
     readonly property list<Notif> list: []
     readonly property list<Notif> popups: list.filter(n => n.popup)
+    property list<Notification> pending: []
+    property bool notificationsEnabled: true
 
     NotificationServer {
         id: server
@@ -25,11 +28,33 @@ Singleton {
 
         onNotification: notif => {
             notif.tracked = true;
+            if (root.notificationsEnabled) {
+                root.list.push(notifComp.createObject(root, {
+                    popup: true,
+                    notification: notif
+                }));
+            } else {
+                root.pending.push(notif);
+            }
+        }
+    }
 
-            root.list.push(notifComp.createObject(root, {
-                popup: true,
-                notification: notif
-            }));
+    function toggleNotifications(newState) {
+        if (root.notificationsEnabled === newState)
+            return;
+        if (!newState) {
+            for (const notif of root.list)
+                notif.popup = false;
+        }
+        root.notificationsEnabled = newState;
+        if (newState) {
+            for (const notif of root.pending) {
+                root.list.push(notifComp.createObject(root, {
+                    popup: true,
+                    notification: notif
+                }));
+            }
+            root.pending = [];
         }
     }
 
@@ -37,6 +62,21 @@ Singleton {
         name: "clearNotifs"
         description: "Clear all notifications"
         onPressed: {
+            for (const notif of root.list)
+                notif.popup = false;
+        }
+    }
+
+    CustomShortcut {
+        name: "toggleNotifs"
+        description: "Toggle notifications enabled/disabled"
+        onPressed: root.toggleNotifications(!root.notificationsEnabled);
+    }
+
+    IpcHandler {
+        target: "notifs"
+
+        function clear(): void {
             for (const notif of root.list)
                 notif.popup = false;
         }

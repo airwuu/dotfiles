@@ -71,7 +71,6 @@ The installer will create symlinks and overwrite existing files.
 Some things are, unfortunately, broken for the time being.
 
 - Weather sometimes works and sometimes doesn't work in the dashboard drop down
-- Uptime doesn't work in the dashboard dropdown (`uptime -p` is not valid due to an older version of the command)
 - Performance tab in the dashboard does not currently update CPU or GPU temps (missing driver or package or something)
 
 

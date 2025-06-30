@@ -83,6 +83,7 @@ in
     TERM = "ghostty";
     BROWSER = "brave";
   };
+  
   environment.systemPackages = with pkgs; [
     hyprland-qtutils
     xdg-utils

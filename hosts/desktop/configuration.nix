@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 {
+  nixpkgs.overlays = [
+    (import ../../overlays/material-symbols.nix)
+  ];
+
   imports = [
     # System configurations
     ../../nixos/boot-manager.nix

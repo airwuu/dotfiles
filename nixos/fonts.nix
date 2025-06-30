@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    # papirus-icon-theme
+  ];
+
   fonts = {
     packages = with pkgs; [
       roboto
@@ -10,6 +14,7 @@
       work-sans
       source-sans
  
+      papirus-icon-theme
       material-symbols
 
       noto-fonts

@@ -59,7 +59,7 @@ in
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hypridle.service &"
-	      "hyprctl setcursor phinger-cursors-light 14"
+	      "hyprctl setcursor phinger-cursors-light 24"
         "qs -c caelestia &"
       ];
 
@@ -130,7 +130,10 @@ in
         mfact = 0.5;
       };
 
-      gestures = { };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 4;
+      };
 
       misc = {
         vfr = true;
@@ -155,9 +158,11 @@ in
         # Allow scroll wheel press for scrolling.
         scroll_method = "on_button_down";
         scroll_button = 274;
-
+	touchpad = {
+	  natural_scroll = true;				
+	};
         follow_mouse = 1;
-        sensitivity = 1;
+        sensitivity = 0.65;
         repeat_delay = 300;
         repeat_rate = 50;
       };

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 {
     imports = [
         # User Specific Config
@@ -32,6 +32,7 @@
         packages = with pkgs; [
             # Apps
             brave
+            inputs.zen-browser.packages."${system}".default
 
             # Development - Languages/Tools
             premake5

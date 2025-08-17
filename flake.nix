@@ -38,7 +38,7 @@
   outputs = inputs@{ nixpkgs, quickshell, spicetify-nix, ... }:
   {
     nixosConfigurations = {
-      athena = nixpkgs.lib.nixosSystem {
+      pinto = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {

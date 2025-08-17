@@ -40,6 +40,8 @@
 
             # Development - IDE
             vscode
+            vim
+            tmux
 
             # Utilities
             grc

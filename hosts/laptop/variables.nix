@@ -13,8 +13,8 @@
 
     # Git config
     git = {
-      username = "toxocious";
-      email = "toxocious@gmail.com";
+      username = "airwuu";
+      email = "awu0103@gmail.com";
     };
 
     # Locale & Keyboard

@@ -7,7 +7,7 @@
   imports = [
     # System configurations
     ../../nixos/boot-manager.nix
-    ../../nixos/nvidia.nix
+    #../../nixos/nvidia.nix
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
     ../../nixos/fonts.nix

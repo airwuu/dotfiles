@@ -29,7 +29,7 @@ nix-shell -p git
 
 Afterwards, clone this repository into the `~/.config/nixos` directory:
 ```sh
-git clone https://github.com/toxocious/dotfiles.git $HOME/.config/nixos --branch NixOS
+git clone https://github.com/airwuu/dotfiles.git $HOME/.config/nixos 
 ```
 
 Before running the included installation script, be sure to copy the generated hardware configuration file into this repository:
@@ -41,7 +41,7 @@ sudo cp /etc/nixos/hardware-configuration.nix ./.config/nixos/hosts/desktop
 
 Now you may proceed with the initial installation:
 ```sh
-./install.sh athena
+./install.sh cloud
 ```
 
 The initial installation process **will** take a fair amount of time as it downloads and installs all necessary packages and dependencies.

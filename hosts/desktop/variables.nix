@@ -1,8 +1,8 @@
 { config, lib, ... }:
 {
   config.var = {
-    hostname = "athena";
-    username = "jess";
+    hostname = "pinto";
+    username = "airwu";
 
     # Upgrade/GC opt-ins
     autoUpgrade = false;

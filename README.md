@@ -34,7 +34,7 @@ git clone https://github.com/airwuu/dotfiles.git $HOME/.config/nixos
 
 Before running the included installation script, be sure to copy the generated hardware configuration file into this repository:
 ```sh
-sudo cp /etc/nixos/hardware-configuration.nix ./.config/nixos/hosts/desktop
+sudo cp /etc/nixos/hardware-configuration.nix ./.config/nixos/hosts/laptop
 ```
 
 > If you don't do this, there's a good chance that the installation will break **OR** will brick your system upon restarting.

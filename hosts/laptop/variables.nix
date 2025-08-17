@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   config.var = {
-    hostname = "artemis";
+    hostname = "cloud";
     username = "airwu";
 
     # Upgrade/GC opt-ins

@@ -57,7 +57,7 @@
         ];
       };
 
-      artemis = nixpkgs.lib.nixosSystem {
+      cloud = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {

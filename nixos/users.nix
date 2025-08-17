@@ -6,6 +6,7 @@ in {
       isNormalUser = true;
       description = "{$username} Account";
       extraGroups = [ "networkmanager" "wheel" ];
+      initialPassword = "hello";
     };
   };
 }

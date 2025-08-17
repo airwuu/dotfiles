@@ -2,7 +2,7 @@
 {
   config.var = {
     hostname = "artemis";
-    username = "jess";
+    username = "airwu";
 
     # Upgrade/GC opt-ins
     autoUpgrade = false;

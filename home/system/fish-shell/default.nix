@@ -50,7 +50,10 @@
 
     # You can also add shellInit for other configurations if needed
      shellInit = ''
+       set fish_greeting ""
        starship init fish | source
      '';
+
+    
   };
 }

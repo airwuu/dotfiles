@@ -18,8 +18,8 @@
     };
 
     # Locale & Keyboard
-    location = "Phoenix";
-    timeZone = "America/Phoenix";
+    location = "Los_Angeles";
+    timeZone = "America/Los_Angeles";
     defaultLocale = "en_US.UTF-8";
     extraLocale = "en_US.UTF-8";
     keyboardLayout = "us";

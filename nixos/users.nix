@@ -7,6 +7,8 @@ in {
       description = "{$username} Account";
       extraGroups = [ "networkmanager" "wheel" ];
       initialPassword = "hello";
+      shell = pkgs.fish;
     };
   };
+ programs.fish.enable = true;
 }

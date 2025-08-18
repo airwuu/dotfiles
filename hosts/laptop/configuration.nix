@@ -25,7 +25,6 @@
   nix.settings = {
     download-buffer-size = 134217728;
   };
-
   # Nix PM Version
   nix.package = pkgs.nixVersions.latest;
 

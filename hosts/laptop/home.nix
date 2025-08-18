@@ -53,6 +53,7 @@
             fish
             neofetch
             gtk3
+            nautilus
 
             # Misc
             cava

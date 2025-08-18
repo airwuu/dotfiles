@@ -37,6 +37,17 @@ Singleton {
         ddcProc.running = true;
     }
 
+    Timer {
+        interval: 1000 // Check every second
+        running: true
+        repeat: true
+        onTriggered: {
+            for (const monitor of monitors) {
+                if(monitor.initProc) monitor.initProc.running = true;
+            }
+        }
+    }
+
     Variants {
         id: variants
 
@@ -90,7 +101,12 @@ Singleton {
             stdout: SplitParser {
                 onRead: data => {
                     const [, , , current, max] = data.split(" ");
-                    monitor.brightness = parseInt(current) / parseInt(max);
+                    if(max > 0) {
+                        const newBrightness = parseInt(current) / parseInt(max);
+                        if (Math.abs(monitor.brightness - newBrightness) > 0.01) {
+                            monitor.brightness = newBrightness;
+                        }
+                    }
                 }
             }
         }
@@ -106,12 +122,14 @@ Singleton {
         }
 
         onBusNumChanged: {
-            initProc.command = isDdc ? ["ddcutil", "-b", busNum, "getvcp", "10", "--brief"] : ["sh", "-c", `echo "a b c $(brightnessctl g) $(brightnessctl m)"`];
+            initProc.command = isDdc ?
+["ddcutil", "-b", busNum, "getvcp", "10", "--brief"] : ["sh", "-c", `echo "a b c $(brightnessctl g) $(brightnessctl m)"`];
             initProc.running = true;
         }
 
         Component.onCompleted: {
-            initProc.command = isDdc ? ["ddcutil", "-b", busNum, "getvcp", "10", "--brief"] : ["sh", "-c", `echo "a b c $(brightnessctl g) $(brightnessctl m)"`];
+            initProc.command = isDdc ?
+["ddcutil", "-b", busNum, "getvcp", "10", "--brief"] : ["sh", "-c", `echo "a b c $(brightnessctl g) $(brightnessctl m)"`];
             initProc.running = true;
         }
     }

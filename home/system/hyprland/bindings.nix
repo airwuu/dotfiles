@@ -18,7 +18,7 @@ in
       "$shiftMod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh monitor"
 
       # Caelestia shell bindings
-      "$mod, RETURN, exec, caelestia-quickshell shell toggle launcher"
+      #"$mod, RETURN, exec, caelestia-quickshell shell toggle launcher"
       "$mod, D, exec, caelestia-quickshell shell toggle dashboard"
       "$mod, S, exec, caelestia-quickshell shell toggle session"
 
@@ -40,6 +40,10 @@ in
         "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
       ]) totalWorkspaces
     ));
+    bindr = [
+      #",SUPER, exec, caelestia-quickshell shell toggle launcher"
+      "SUPER, SUPER_L, exec, caelestia-quickshell shell toggle launcher"
+    ];
     bindm = [
       # Move window with mainMod + LMB
       "$mod, mouse:272, movewindow"

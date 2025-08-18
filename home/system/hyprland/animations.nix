@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  animationSpeed = "1.0";
+  animationSpeed = "0.5";
 in
 {
   wayland.windowManager.hyprland.settings = {

@@ -1,10 +1,10 @@
 { pkgs, config, inputs, lib, ... }:
 let
-  border-size = "2";
+  border-size = "1";
   gaps-in = "6";
   gaps-out = "6";
   active-opacity = "1.0";
-  inactive-opacity = "0.69";
+  inactive-opacity = "0.99";
   rounding = "17";
   blur = true;
   keyboardLayout = config.var.keyboardLayout;

@@ -14,15 +14,15 @@
         alwaysAnimate.enable = true;
 
         # Always expands role list in profile popouts.
-        alwaysExpandRoles.enable = true;
+        #alwaysExpandRoles.enable = true;
 
         # Handle trust based popups for files and links.
-        alwaysTrust = {
-          enable = true;
+        #alwaysTrust = {
+         # enable = true;
 
-          domain = true;
-          file = true;
-        };
+          #domain = true;
+          #file = true;
+        #};
 
         # Use anonymous file names for uploads.
         anonymiseFileNames = {
@@ -34,28 +34,28 @@
         };
 
         # Show server folders on dedicated sidebar, and adds folder related improvements.
-        betterFolders = {
-          enable = true;
+        #betterFolders = {
+         # enable = true;
 
-          sidebar = true;
-          sidebarAnim = true;
+          #sidebar = true;
+          #sidebarAnim = true;
 
-          closeAllFolders = false;
-          closeAllHomeButton = false;
-          closeOthers = false;
-          forceOpen = true;
-        };
+          #closeAllFolders = false;
+         # closeAllHomeButton = false;
+         # closeOthers = false;
+         # forceOpen = true;
+        #};
 
         # Changes GIF alt text from 'GIF' to containing the GIF's tags/filename.
         betterGifAltText.enable = true;
 
         # Enhances the sessions menu and checks for new sessions in the background - displays notification on newly detected sessions.
-        betterSessions = {
-          enable = true;
+        #betterSessions = {
+         # enable = true;
 
-          backgroundCheck = true;
-          checkInterval = 15;
-        };
+          #backgroundCheck = true;
+          #checkInterval = 15;
+        #};
 
         # Enhances the settings menu opening experience.
         betterSettings.enable = true;
@@ -102,12 +102,12 @@
         friendsSince.enable = true;
 
         # Display the server's online and total member count.
-        memberCount = {
-          enable = true;
+        #memberCount = {
+         # enable = true;
 
-          toolTip = true;
-          memberList = true;
-        };
+          #toolTip = true;
+          #memberList = true;
+       # };
 
         # Show user avatars inside of mentions.
         mentionAvatars.enable = true;
@@ -124,82 +124,82 @@
         };
 
         # Hides incoming friend requests, message requests, and nitro offers.
-        noPendingCount = {
-          enable = true;
+        #noPendingCount = {
+        #  enable = true;
 
-          hideFriendRequestsCount = false;
-          hideMessageRequestCount = false;
-          hidePremiumOffersCount = true;
-        };
+         # hideFriendRequestsCount = false;
+         # hideMessageRequestCount = false;
+         # hidePremiumOffersCount = true;
+       # };
 
         # Strip canary/ptb from message links.
-        normalizeMessageLinks.enable = true;
+        #normalizeMessageLinks.enable = true;
 
         # View the permissions that a user or channel has, and the roles of a server.
-        permissionsViewer.enable = true;
+        #permissionsViewer.enable = true;
 
         # Let's you preview your message before sending it.
-        previewMessage.enable = true;
+        #previewMessage.enable = true;
 
         # Notifies you when a friend, group chat, or server removes you.
-        relationshipNotifier = {
-          enable = true;
-          notices = true;
-        };
+        #relationshipNotifier = {
+         # enable = true;
+         # notices = true;
+        #};
 
         # Replaces the default search engine from Google to DuckDuckGo
-        replaceGoogleSearch = {
-          enable = true;
+        #replaceGoogleSearch = {
+         # enable = true;
 
-          customEngineName = "DuckDuckGo";
-          customEngineURL = "https://duckduckgo.com";
-        };
+          #customEngineName = "DuckDuckGo";
+          #customEngineURL = "https://duckduckgo.com";
+        #};
 
         # Shows a timestamp on replied-message previews.
-        replyTimestamp.enable = true;
+        #replyTimestamp.enable = true;
 
         # Add ImageSearch to image context menus for reverse image searching.
         reverseImageSearch.enable = true;
 
         # Allows you to view information about a server.
-        serverInfo.enable = true;
+        #serverInfo.enable = true;
 
         # Show channels that you do not have access to view.
-        showHiddenChannels.enable = true;
+        #showHiddenChannels.enable = true;
 
         # Display usernames next to nicknames.
-        showMeYourName = {
-          enable = true;
+        #showMeYourName = {
+         # enable = true;
 
-          mode = "user-nick";
-        };
+          #mode = "user-nick";
+        #};
 
         # Add a toggle to the chat bar to allow sending silent messages.
-        silentMessageToggle = {
-          enable = true;
+        #silentMessageToggle = {
+         # enable = true;
 
-          autoDisable = false;
-        };
+          #autoDisable = false;
+        #};
 
         # Adds functionality to hide that you are typing.
-        silentTyping = {
-          enable = true;
+        #silentTyping = {
+         # enable = true;
 
-          showIcon = true;
-          contextMenu = true;
+          #showIcon = true;
+          #contextMenu = true;
 
-          isEnabled = true;
-        };
+          #isEnabled = true;
+        #};
 
         # Add an indicator to the server's channel list if someone is typing.
-        typingIndicator = {
-          enable = true;
+        #typingIndicator = {
+          #enable = true;
 
-          includeMutedChannels = true;
-          includeBlockedUsers = true;
+          #includeMutedChannels = true;
+          #includeBlockedUsers = true;
 
-          indicatorMode = "both";
-        };
+          #indicatorMode = "both";
+        #};
 
         # Show avatars in the typing indicator.
         typingTweaks = {
@@ -211,13 +211,13 @@
         };
 
         # Shows whether a user is currently in a voice channel somewhere on the profile.
-        userVoiceShow = {
-          enable = true;
+        #userVoiceShow = {
+          #enable = true;
 
-          showInUserProfileModal = true;
-          showInMemberList = true;
-          showInMessages = true;
-        };
+          #showInUserProfileModal = true;
+          #showInMemberList = true;
+          #showInMessages = true;
+        #};
 
         # Fixes "Message could not be loaded" upon hovering over a reply.
         validReply.enable = true;

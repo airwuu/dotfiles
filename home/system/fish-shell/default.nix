@@ -49,8 +49,8 @@
     };
 
     # You can also add shellInit for other configurations if needed
-    # shellInit = ''
-    #   # Other fish configurations
-    # '';
+     shellInit = ''
+       starship init fish | source
+     '';
   };
 }

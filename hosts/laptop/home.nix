@@ -18,6 +18,7 @@
         ../../home/programs/discord
         ../../home/programs/ghostty
         ../../home/programs/spicetify
+        ../../home/programs/starship
 
         # Shell
         ../../home/quickshell
@@ -56,6 +57,7 @@
             nautilus
 
             # Misc
+            starship
             cava
             bluez
             ddcutil

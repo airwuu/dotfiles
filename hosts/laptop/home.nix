@@ -63,6 +63,7 @@
             ddcutil
             brightnessctl
             imagemagick
+            networkmanagerapplet
         ];
 
         # State version - don't touch this

@@ -7,7 +7,7 @@ in
     bind = [
       # Kill active window
       "$mod, Q, killactive"
-
+      "$mod, F, fullscreen"
       # Bindings to open applications
       "$mod, C, exec, code"         # Open VS Code
       "$mod, SPACE, exec, ghostty"  # Open Ghostty terminal

@@ -94,8 +94,16 @@ in
     curl
 
     gcc
+    stdenv.cc.cc.lib
     git-ignore
   ];
+  # stdenv
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib # Provides libstdc++.so.6
+    ];
+  };
 
   # Documentation - Enables quicker rebuilding?
   documentation = {

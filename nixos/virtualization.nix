@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     podman-compose
+    docker-compose
     qemu
     spice
     spice-gtk

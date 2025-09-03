@@ -5,7 +5,7 @@ in {
     users.${username} = {
       isNormalUser = true;
       description = "{$username} Account";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
       initialPassword = "hello";
       shell = pkgs.fish;
     };

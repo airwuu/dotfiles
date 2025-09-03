@@ -61,7 +61,7 @@ Column {
                     anchors.centerIn: parent
 
                     horizontalAlignment: Text.AlignHCenter
-                    text: grid.locale.toString(day.model.date, "d")
+		    text: grid.locale.toString(new Date(day.model.date.valueOf() + 1000 * 60 * 60 * 24), "d")
                     color: day.model.today ? Colours.palette.m3onPrimary : day.model.month === grid.month ? Colours.palette.m3onSurfaceVariant : Colours.palette.m3outline
                 }
             }

@@ -20,6 +20,22 @@
         "10-disable-camera" = {
           "wireplumber.profiles" = { main."monitor.libcamera" = "disabled"; };
         };
+	"50-alsa-config.lua" = {
+        	"alsa_monitor.rules" = [
+          	{
+            	"matches" = [
+              	{	
+                	"node.name" = "~alsa_output.*";
+              }
+            ];
+            "actions" = {
+              "update-props" = {
+                "session.suspend-timeout-seconds" = 0; # 0 disables suspend
+              };
+            };
+          }
+        ];
+      };
       };
     };
   };

@@ -27,10 +27,13 @@
   };
   # Nix PM Version
   nix.package = pkgs.nixVersions.latest;
-
   # Setup Home Manager for our user
   home-manager.users."${config.var.username}" = import ./home.nix;
 
   # NixOS Version - Don't Change
   system.stateVersion = "24.11";
+
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+  ];
 }

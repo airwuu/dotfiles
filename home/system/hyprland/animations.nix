@@ -5,7 +5,7 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     animations = {
-      enabled = true;
+      enabled = false;
     };
   };
 }

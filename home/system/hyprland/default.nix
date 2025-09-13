@@ -89,7 +89,7 @@ in
        "WLR_BACKEND,vulkan"
        "WLR_RENDERER,vulkan"
        "WLR_NO_HARDWARE_CURSORS,1"
-       "SDL_VIDEODRIVER,wayland,x11"
+       #"SDL_VIDEODRIVER,wayland,x11"
        "CLUTTER_BACKEND,wayland"
 
        "STEAM_FORCE_DESKTOPUI_SCALING,1"

@@ -19,6 +19,7 @@
         ../../home/programs/ghostty
         ../../home/programs/spicetify
         ../../home/programs/starship
+        ../../home/programs/foot
 
         # Shell
         ../../home/quickshell

@@ -24,9 +24,7 @@ in
       "$mod SHIFT, up, movewindow, u"
       "$mod SHIFT, down, movewindow, d"
 
-      # Screenshot with hyprshot
-      "$mod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh region"
-      "$shiftMod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh monitor"
+      
 
       # Caelestia shell bindings
       #"$mod, RETURN, exec, caelestia-quickshell shell toggle launcher"
@@ -54,6 +52,9 @@ in
     bindr = [
       #",SUPER, exec, caelestia-quickshell shell toggle launcher"
       "SUPER, SUPER_L, exec, caelestia-quickshell shell toggle launcher"
+      # Screenshot with hyprshot
+      ", Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh region"
+      #"$shiftMod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh monitor"
     ];
     bindm = [
       # Move window with mainMod + LMB

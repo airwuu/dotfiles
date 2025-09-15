@@ -10,8 +10,8 @@ in
       "$mod, F, fullscreen"
       # Bindings to open applications
       "$mod, C, exec, code"         # Open VS Code
-      "$mod, SPACE, exec, ghostty"  # Open Ghostty terminal
-      "$mod, B, exec, brave"        # Open Brave browser
+      "$mod, SPACE, exec, foot"  # Open Ghostty terminal
+      "$mod, B, exec, zen"        # Open Brave browser
 
       # Screenshot with hyprshot
       "$mod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh region"

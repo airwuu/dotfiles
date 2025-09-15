@@ -81,7 +81,7 @@ in
     EDITOR = "nano";
     TERMINAL = "foot";
     TERM = "foot";
-    BROWSER = "brave";
+    BROWSER = "zen";
   };
   
   environment.systemPackages = with pkgs; [

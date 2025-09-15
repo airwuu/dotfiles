@@ -131,8 +131,9 @@ in
       };
 
       gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 4;
+        #workspace_swipe = true;
+        #workspace_swipe_fingers = 4;
+        gesture = "4, horizontal, workspace";
       };
 
       misc = {

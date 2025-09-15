@@ -79,8 +79,8 @@ in
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     EDITOR = "nano";
-    TERMINAL = "ghostty";
-    TERM = "ghostty";
+    TERMINAL = "foot";
+    TERM = "foot";
     BROWSER = "brave";
   };
   

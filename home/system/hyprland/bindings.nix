@@ -13,6 +13,17 @@ in
       "$mod, SPACE, exec, foot"  # Open Ghostty terminal
       "$mod, B, exec, zen"        # Open Brave browser
 
+      # Focus and move windows with arrow keys
+      "$mod, left, movefocus, l"
+      "$mod, right, movefocus, r"
+      "$mod, up, movefocus, u"
+      "$mod, down, movefocus, d"
+
+      "$mod SHIFT, left, movewindow, l"
+      "$mod SHIFT, right, movewindow, r"
+      "$mod SHIFT, up, movewindow, u"
+      "$mod SHIFT, down, movewindow, d"
+
       # Screenshot with hyprshot
       "$mod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh region"
       "$shiftMod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh monitor"

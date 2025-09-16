@@ -42,7 +42,12 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-
+    extraConfig = ''
+      gestures {
+        gesture = 4, horizontal, workspace
+	gesture = 4, vertical, special, magic
+    }
+    '';
     systemd = {
       enable = false;
       variables = [ "--all" ];
@@ -133,7 +138,8 @@ in
       gestures = {
         #workspace_swipe = true;
         #workspace_swipe_fingers = 4;
-        gesture = "4, horizontal, workspace";
+        #gesture = "4, horizontal, workspace";
+	#gesture = "3, up, special:workspace";
       };
 
       misc = {

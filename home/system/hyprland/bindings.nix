@@ -12,6 +12,7 @@ in
       "$mod, C, exec, code"         # Open VS Code
       "$mod, SPACE, exec, foot"  # Open Ghostty terminal
       "$mod, B, exec, zen"        # Open Brave browser
+      "$mod, V, exec, vesktop"
 
       # Focus and move windows with arrow keys
       "$mod, left, movefocus, l"

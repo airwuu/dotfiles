@@ -124,7 +124,7 @@ in
           render_power = 3;
         };
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6;
         };
       };

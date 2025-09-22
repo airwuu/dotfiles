@@ -32,7 +32,8 @@
 
   # NixOS Version - Don't Change
   system.stateVersion = "24.11";
-
+  # framework stuff
+  services.fwupd.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     amdvlk
   ];

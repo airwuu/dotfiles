@@ -29,6 +29,20 @@
     };
   };
 
+  # foot
+
+xdg.dataFile."caelestia/config.json".text = builtins.toJSON {
+  templates = {
+    foot = {
+      template = "foot";
+      destination = "~/.config/foot/theme.conf";
+    };
+  };
+  commands = {
+    reload_foot = "killall -USR1 foot";
+  };
+};
+
   # Environment variables
   home.sessionVariables = {
     C_DATA = "${config.xdg.dataHome}/caelestia";

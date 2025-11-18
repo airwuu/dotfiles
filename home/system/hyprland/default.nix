@@ -69,8 +69,8 @@ in
       ];
 
       monitor = [
-        # "DP-1,2560x1440@240,auto,1" # Primary monitor
-	  ",prefered,auto,1.333" #Default everything
+	  "eDP-1,prefered,auto,1.333" #primary laptop monitor
+	  ",preferred,auto,1,mirror,eDP-1"
         #",1920x1080,auto,1"
       ];
 

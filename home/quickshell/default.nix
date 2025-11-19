@@ -65,6 +65,9 @@
                       echo "Usage: caelestia shell $cmd <drawer>"
                       exit 1
                   end
+              case "refresh-colors"
+                  # Send a message to the running shell instead of restarting it
+                  exec ${config.programs.quickshell.finalPackage}/bin/qs -c caelestia ipc call colours reload
               case "media"
                   if test -n "$args[1]"
                       set -l action $args[1]

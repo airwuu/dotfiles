@@ -4,44 +4,37 @@ let
   # Caelestia scripts derivation with Python shebang fixes
   caelestia-cli = pkgs.stdenv.mkDerivation rec {
     pname = "caelestia-cli";
-    version = "unstable-2024-01-07";
+    version = "1.0.1";
 
     src = pkgs.fetchFromGitHub {
       owner = "caelestia-dots";
       repo = "cli";
-      rev = "9da9d7bb1b254d5d94265bda5e052ca4feee1b9a";
-      sha256 = "sha256-ehWY/xdv08PJr1QFOPWCG+5/oFtakmMVKOzpg6Z+CXM=";
+      rev = "v1.0.1";
+      sha256 = "sha256-7m4hqYSgRe68lkzHFLb1GN5gQac4X4akKfKgFvhj/34="; 
     };
 
-    nativeBuildInputs = with pkgs; [
-      makeWrapper
-    ];
+    nativeBuildInputs = with pkgs; [ makeWrapper ];
 
+    # Define Python environment with dependencies
     buildInputs = with pkgs; [
       fish
       (python3.withPackages (ps: with ps; [
         materialyoucolor
         pillow
+        setuptools
       ]))
     ];
 
     patchPhase = ''
-      # Fix hardcoded paths to use XDG directories
-      # For Fish files - use $HOME which Fish understands
+      # Fix paths in fish files if any still exist and need it
       find . -name "*.fish" -type f | while read -r file; do
-        # Replace specific patterns found in the scripts
-        sed -i 's|$src/../data/schemes|$HOME/.local/share/caelestia/schemes|g' "$file"
-        sed -i 's|(dirname (status filename))/data|$HOME/.local/share/caelestia|g' "$file"
-        sed -i 's|$src/data|$HOME/.local/share/caelestia|g' "$file"
-        # Correct the default wallpaper directory
-        sed -i 's|\$HOME/Wallpapers|\$HOME/Pictures/Wallpapers|g' "$file"
-        sed -i 's|"~/Wallpapers"|"~/Pictures/Wallpapers"|g' "$file"
+        sed -i 's|set -l data_dir .*|set -l data_dir $HOME/.local/share/caelestia|g' "$file"
       done
-
-      # For Python files
+      
+      # Fix paths in Python files to look for data in user directory
       find . -name "*.py" -type f | while read -r file; do
-        sed -i 's|os.path.join(os.path.dirname(__file__), "..", "data")|os.path.expanduser("~/.local/share/caelestia")|g' "$file"
         sed -i 's|Path(__file__).parent.parent / "data"|Path.home() / ".local" / "share" / "caelestia"|g' "$file"
+        sed -i 's|os.path.join(os.path.dirname(__file__), "..", "data")|os.path.expanduser("~/.local/share/caelestia")|g' "$file"
       done
     '';
 
@@ -49,55 +42,54 @@ let
       mkdir -p $out/bin
       mkdir -p $out/share/caelestia-cli
 
-      # Copy all the scripts to share directory
+      # Copy source files
       cp -r * $out/share/caelestia-cli/
 
-      # Fix Python shebangs for NixOS with the wrapped Python
-      find $out/share/caelestia-cli -name "*.py" -type f -exec sed -i '1s|^#!/bin/python3|#!${pkgs.python3.withPackages (ps: with ps; [ materialyoucolor pillow ])}/bin/python3|' {} \;
-      find $out/share/caelestia-cli -name "*.py" -type f -exec sed -i '1s|^#!/bin/python|#!${pkgs.python3.withPackages (ps: with ps; [ materialyoucolor pillow ])}/bin/python|' {} \;
-      find $out/share/caelestia-cli -name "*.py" -type f -exec sed -i '1s|^#!/usr/bin/env python3|#!${pkgs.python3.withPackages (ps: with ps; [ materialyoucolor pillow ])}/bin/python3|' {} \;
-      find $out/share/caelestia-cli -name "*.py" -type f -exec sed -i '1s|^#!/usr/bin/env python|#!${pkgs.python3.withPackages (ps: with ps; [ materialyoucolor pillow ])}/bin/python|' {} \;
-
-      # Make Python scripts executable
-      find $out/share/caelestia-cli -name "*.py" -type f -exec chmod +x {} \;
-
-      # Create a setup script that ensures data directories exist
+      # Create setup script to populate ~/.local/share/caelestia
       cat > $out/bin/caelestia-setup <<EOF
       #!/bin/sh
       DATA_HOME="\$HOME/.local/share/caelestia"
       STATE_HOME="\$HOME/.local/state/caelestia"
       CACHE_HOME="\$HOME/.cache/caelestia"
+      SRC_DATA="$out/share/caelestia-cli/src/caelestia/data"
 
       mkdir -p "\$DATA_HOME/schemes/dynamic"
+      mkdir -p "\$DATA_HOME/templates"
       mkdir -p "\$STATE_HOME/wallpaper"
       mkdir -p "\$CACHE_HOME/schemes"
 
-      # Copy data files if they don't exist
-      if [ ! -d "\$DATA_HOME/schemes" ] && [ -d "$out/share/caelestia-cli/data/schemes" ]; then
-        cp -r "$out/share/caelestia-cli/data/schemes" "\$DATA_HOME/"
+      # Copy default schemes if missing
+      if [ -d "\$SRC_DATA/schemes" ]; then
+        cp -rn "\$SRC_DATA/schemes/"* "\$DATA_HOME/schemes/"
       fi
-      if [ ! -f "\$DATA_HOME/config.json" ] && [ -f "$out/share/caelestia-cli/data/config.json" ]; then
-        cp "$out/share/caelestia-cli/data/config.json" "\$DATA_HOME/"
+      
+      # Copy default templates if missing
+      if [ -d "\$SRC_DATA/templates" ]; then
+        cp -rn "\$SRC_DATA/templates/"* "\$DATA_HOME/templates/"
       fi
-      if [ ! -f "\$DATA_HOME/emojis.txt" ] && [ -f "$out/share/caelestia-cli/data/emojis.txt" ]; then
-        cp "$out/share/caelestia-cli/data/emojis.txt" "\$DATA_HOME/"
+
+      # Copy config and emojis if missing
+      if [ ! -f "\$DATA_HOME/config.json" ] && [ -f "\$SRC_DATA/config.json" ]; then
+        cp "\$SRC_DATA/config.json" "\$DATA_HOME/"
+      fi
+      if [ ! -f "\$DATA_HOME/emojis.txt" ] && [ -f "\$SRC_DATA/emojis.txt" ]; then
+        cp "\$SRC_DATA/emojis.txt" "\$DATA_HOME/"
       fi
       EOF
       chmod +x $out/bin/caelestia-setup
 
-      # Create wrapper for main script with all required tools in PATH
-      makeWrapper ${pkgs.fish}/bin/fish $out/bin/caelestia \
-        --add-flags "$out/share/caelestia-cli/main.fish" \
+      # Create wrapper that runs the Python module
+      makeWrapper ${pkgs.python3}/bin/python3 $out/bin/caelestia \
+        --add-flags "-m caelestia" \
         --run "$out/bin/caelestia-setup" \
+        --set PYTHONPATH "$out/share/caelestia-cli/src:${pkgs.python3Packages.materialyoucolor}/${pkgs.python3.sitePackages}:${pkgs.python3Packages.pillow}/${pkgs.python3.sitePackages}" \
         --prefix PATH : ${lib.makeBinPath (with pkgs; [
-          quickshell-wrapped
           imagemagick
           wl-clipboard
           fuzzel
           socat
           foot
           jq
-          (python3.withPackages (ps: with ps; [ materialyoucolor pillow ]))
           grim
           wayfreeze
           wl-screenrec

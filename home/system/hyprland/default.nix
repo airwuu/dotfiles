@@ -66,6 +66,7 @@ in
         "systemctl --user enable --now hypridle.service &"
 	      "hyprctl setcursor phinger-cursors-light 24"
         "qs -c caelestia &"
+	"caelestia scheme set -n dynamic"
       ];
 
       monitor = [

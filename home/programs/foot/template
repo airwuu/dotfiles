@@ -1,23 +1,26 @@
 [colors]
+alpha=1.0
 background={{ background }}
-foreground={{ foreground }}
+foreground={{ onSurface }}
 
 ## Normal/regular colors (colorpalette 0-7)
-regular0={{ color0 }}
-regular1={{ color1 }}
-regular2={{ color2 }}
-regular3={{ color3 }}
-regular4={{ color4 }}
-regular5={{ color5 }}
-regular6={{ color6 }}
-regular7={{ color7 }}
+# Mapping Caelestia semantic colors to terminal slots
+regular0={{ surfaceContainer }}
+regular1={{ error }}
+regular2={{ success }}
+regular3={{ tertiaryContainer }}
+regular4={{ primary }}
+regular5={{ tertiary }}
+regular6={{ secondary }}
+regular7={{ onSurface }}
 
 ## Bright colors (colorpalette 8-15)
-bright0={{ color8 }}
-bright1={{ color9 }}
-bright2={{ color10 }}
-bright3={{ color11 }}
-bright4={{ color12 }}
-bright5={{ color13 }}
-bright6={{ color14 }}
-bright7={{ color15 }}
+# Using brighter/variant versions for the 'bright' slots
+bright0={{ surfaceVariant }}
+bright1={{ onErrorContainer }}
+bright2={{ green }}
+bright3={{ yellow }}
+bright4={{ primaryFixed }}
+bright5={{ mauve }}
+bright6={{ teal }}
+bright7={{ onSurfaceVariant }}

@@ -32,17 +32,21 @@
   # foot
 
 xdg.dataFile."caelestia/config.json".text = builtins.toJSON {
+  # Add this section to trigger scheme generation after wallpaper changes
+  wallpaper = {
+    postHook = "caelestia scheme set -n dynamic -m dark ";
+  };
+  
   templates = {
     foot = {
       template = "foot";
-      destination = "~/.config/foot/theme.conf";
+      destination = "${config.xdg.configHome}/foot/theme.conf";
     };
   };
   commands = {
     reload_foot = "killall -USR1 foot";
   };
 };
-
   # Environment variables
   home.sessionVariables = {
     C_DATA = "${config.xdg.dataHome}/caelestia";

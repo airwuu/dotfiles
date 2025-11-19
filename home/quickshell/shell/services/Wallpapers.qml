@@ -35,7 +35,7 @@ Singleton {
     function setWallpaper(path: string): void {
         actualCurrent = path;
         setWall.path = path;
-        setWall.startDetached();
+        setWall.running = true; // CHANGED: Run managed process to catch onExited
     }
 
     function preview(path: string): void {
@@ -60,8 +60,8 @@ Singleton {
 
     Process {
         id: getPreviewColoursProc
-
-        command: ["caelestia", "scheme", "print", root.previewPath]
+        // FIX: New command syntax for preview
+        command: ["caelestia", "wallpaper", "-p", root.previewPath]
         stdout: SplitParser {
             splitMarker: ""
             onRead: data => {
@@ -77,8 +77,14 @@ Singleton {
         property string path
 
         command: ["caelestia", "wallpaper", "-f", path]
-    }
 
+        // Ensure this block is present!
+        onExited: (exitCode, status) => {
+            if (exitCode === 0) {
+                Colours.setMode(Colours.light ? "light" : "dark");
+            }
+        }
+    }
     Process {
         running: true
         command: ["fd", ".", root.path, "-t", "f", "-e", "jpg", "-e", "jpeg", "-e", "png", "-e", "svg"]
@@ -90,7 +96,6 @@ Singleton {
 
     Variants {
         id: wallpapers
-
         Wallpaper {}
     }
 

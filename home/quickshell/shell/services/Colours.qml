@@ -24,7 +24,7 @@ Singleton {
             return c;
         c = Qt.rgba(c.r, c.g, c.b, layer ? transparency.layers : transparency.base);
         if (layer)
-            c.hsvValue = Math.max(0, Math.min(1, c.hslLightness + (light ? -0.2 : 0.2))); // TODO: edit based on colours (hue or smth)
+            c.hsvValue = Math.max(0, Math.min(1, c.hslLightness + (light ? -0.2 : 0.2)));
         return c;
     }
 
@@ -51,25 +51,49 @@ Singleton {
     }
 
     function setMode(mode: string): void {
-        setModeProc.command = ["caelestia", "scheme", "dynamic", "default", mode];
-        setModeProc.startDetached();
+        // FIX: New syntax and running as managed process
+	setModeProc.command = ["caelestia", "scheme", "set", "-n", "dynamic", "-m", mode];
+        setModeProc.running = true;
+    }
+
+    // ADDED: Exposed reload function
+    function reload() {
+        fileMode.reload();
+        fileCurrent.reload();
     }
 
     Process {
         id: setModeProc
+        // ADDED: Reload on completion
+        onExited: {
+            if (exitCode === 0) {
+                root.reload();
+            }
+        }
+    }
+    
+    // Keep IPC as backup
+    IpcHandler {
+        target: "colours"
+        
+        function reload(): void {
+            console.log("[INFO] Manually reloading colour scheme");
+            modeFile.reload();
+            schemeFile.reload();
+        }
     }
 
     FileView {
+        id: fileMode
         path: `${Paths.state}/scheme/current-mode.txt`
         watchChanges: true
-        onFileChanged: reload()
         onLoaded: root.light = text() === "light"
     }
 
     FileView {
+        id: fileCurrent
         path: `${Paths.state}/scheme/current.txt`
         watchChanges: true
-        onFileChanged: reload()
         onLoaded: root.load(text(), false)
     }
 

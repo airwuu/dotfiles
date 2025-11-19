@@ -35,6 +35,7 @@
             # Apps
             brave
             inputs.zen-browser.packages."${system}".default
+            firefox
 
             # Development - Languages/Tools
             premake5

@@ -10,9 +10,9 @@ import QtQuick
 Singleton {
     id: root
 
-    // FIX: Use list<var> to avoid type conflicts
-    readonly property list<var> list: [
-        Action {
+    // Using LauncherAction instead of Action to avoid conflicts
+    readonly property list<QtObject> list: [
+        LauncherAction {
             name: qsTr("Scheme")
             desc: qsTr("Change the current colour scheme")
             icon: "palette"
@@ -21,7 +21,7 @@ Singleton {
                  root.autocomplete(list, "scheme");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Wallpaper")
             desc: qsTr("Change the current wallpaper")
             icon: "image"
@@ -30,7 +30,7 @@ Singleton {
                 root.autocomplete(list, "wallpaper");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Variant")
             desc: qsTr("Change the current scheme variant")
             icon: "colors"
@@ -39,7 +39,7 @@ Singleton {
                 root.autocomplete(list, "variant");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Transparency")
             desc: qsTr("Change shell transparency")
             icon: "opacity"
@@ -48,7 +48,7 @@ Singleton {
                 root.autocomplete(list, "transparency");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Light")
             desc: qsTr("Change the scheme to light mode")
             icon: "light_mode"
@@ -58,7 +58,7 @@ Singleton {
                 Colours.setMode("light");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Dark")
             desc: qsTr("Change the scheme to dark mode")
             icon: "dark_mode"
@@ -68,7 +68,7 @@ Singleton {
                 Colours.setMode("dark");
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Shutdown")
             desc: qsTr("Shutdown the system")
             icon: "power_settings_new"
@@ -78,7 +78,7 @@ Singleton {
                 shutdown.running = true;
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Reboot")
             desc: qsTr("Reboot the system")
             icon: "cached"
@@ -88,7 +88,7 @@ Singleton {
                 reboot.running = true;
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Logout")
             desc: qsTr("Logout of the current session")
             icon: "logout"
@@ -98,7 +98,7 @@ Singleton {
                 logout.running = true;
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Lock")
             desc: qsTr("Lock the current session")
             icon: "lock"
@@ -108,7 +108,7 @@ Singleton {
                 lock.running = true;
             }
         },
-        Action {
+        LauncherAction {
             name: qsTr("Sleep")
             desc: qsTr("Suspend then hibernate")
             icon: "bedtime"
@@ -162,7 +162,4 @@ Singleton {
         id: sleep
         command: ["systemctl", "suspend-then-hibernate"]
     }
-
-    // NOTE: The inline 'component Action' that was here has been removed.
-    // It is now replaced by the separate Action.qml file.
 }

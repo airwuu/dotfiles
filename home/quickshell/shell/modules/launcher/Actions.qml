@@ -10,14 +10,15 @@ import QtQuick
 Singleton {
     id: root
 
-    readonly property list<Action> list: [
+    // FIX: Use list<var> to avoid type conflicts
+    readonly property list<var> list: [
         Action {
             name: qsTr("Scheme")
             desc: qsTr("Change the current colour scheme")
             icon: "palette"
 
-            function onClicked(list: AppList): void {
-                root.autocomplete(list, "scheme");
+            function onClicked(list): void {
+                 root.autocomplete(list, "scheme");
             }
         },
         Action {
@@ -25,7 +26,7 @@ Singleton {
             desc: qsTr("Change the current wallpaper")
             icon: "image"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 root.autocomplete(list, "wallpaper");
             }
         },
@@ -34,7 +35,7 @@ Singleton {
             desc: qsTr("Change the current scheme variant")
             icon: "colors"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 root.autocomplete(list, "variant");
             }
         },
@@ -43,7 +44,7 @@ Singleton {
             desc: qsTr("Change shell transparency")
             icon: "opacity"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 root.autocomplete(list, "transparency");
             }
         },
@@ -52,7 +53,7 @@ Singleton {
             desc: qsTr("Change the scheme to light mode")
             icon: "light_mode"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 Colours.setMode("light");
             }
@@ -62,7 +63,7 @@ Singleton {
             desc: qsTr("Change the scheme to dark mode")
             icon: "dark_mode"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 Colours.setMode("dark");
             }
@@ -72,7 +73,7 @@ Singleton {
             desc: qsTr("Shutdown the system")
             icon: "power_settings_new"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 shutdown.running = true;
             }
@@ -82,7 +83,7 @@ Singleton {
             desc: qsTr("Reboot the system")
             icon: "cached"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 reboot.running = true;
             }
@@ -92,7 +93,7 @@ Singleton {
             desc: qsTr("Logout of the current session")
             icon: "logout"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 logout.running = true;
             }
@@ -102,7 +103,7 @@ Singleton {
             desc: qsTr("Lock the current session")
             icon: "lock"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 lock.running = true;
             }
@@ -112,7 +113,7 @@ Singleton {
             desc: qsTr("Suspend then hibernate")
             icon: "bedtime"
 
-            function onClicked(list: AppList): void {
+            function onClicked(list): void {
                 list.visibilities.launcher = false;
                 sleep.running = true;
             }
@@ -133,46 +134,35 @@ Singleton {
         }).map(r => r.obj.action);
     }
 
-    function autocomplete(list: AppList, text: string): void {
+    function autocomplete(list, text: string): void {
         list.search.text = `${LauncherConfig.actionPrefix}${text} `;
     }
 
     Process {
         id: shutdown
-
         command: ["systemctl", "poweroff"]
     }
 
     Process {
         id: reboot
-
         command: ["systemctl", "reboot"]
     }
 
     Process {
         id: logout
-
         command: ["sh", "-c", "(uwsm stop | grep -q 'Compositor is not running' && loginctl terminate-user $USER) || uwsm stop"]
     }  
 
     Process {
         id: lock
-
         command: ["loginctl", "lock-session"]
     }
 
     Process {
         id: sleep
-
         command: ["systemctl", "suspend-then-hibernate"]
     }
 
-    component Action: QtObject {
-        required property string name
-        required property string desc
-        required property string icon
-
-        function onClicked(list: AppList): void {
-        }
-    }
+    // NOTE: The inline 'component Action' that was here has been removed.
+    // It is now replaced by the separate Action.qml file.
 }

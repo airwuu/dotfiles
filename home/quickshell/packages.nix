@@ -98,6 +98,8 @@ let
           findutils
           gnugrep
           xdg-user-dirs
+          dart-sass
+          psmisc
         ])}
     '';
 

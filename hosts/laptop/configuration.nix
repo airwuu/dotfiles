@@ -35,6 +35,6 @@
   # framework stuff
   services.fwupd.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
+    # amdvlk
   ];
 }

@@ -4,7 +4,7 @@
         bottles
         
         mangohud
-        protonup
+        protonup-ng
     ];
 
     environment.sessionVariables = {
@@ -12,7 +12,7 @@
     };
 
     programs.steam = {
-        enable = true;
+        enable = false;
         gamescopeSession.enable = true;
     };
 

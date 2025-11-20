@@ -8,8 +8,8 @@
       
       qemu = {
         swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        #ovmf.enable = true;
+        #ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
 
@@ -31,6 +31,6 @@
     virt-manager
     virt-viewer
     win-spice
-    win-virtio
+    virtio-win
   ];
 }

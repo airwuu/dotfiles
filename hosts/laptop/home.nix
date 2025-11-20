@@ -8,6 +8,7 @@
         ../../home/system/hyprland
         ../../home/system/hypridle
         ../../home/system/hyprlock
+        ../../home/system/hyprpaper
         ../../home/system/cursor
         ../../home/system/fish-shell
         ../../home/system/neofetch
@@ -22,7 +23,8 @@
         ../../home/programs/foot
 
         # Shell
-        ../../home/quickshell
+       # ../../home/quickshell
+       inputs.caelestia-nix.homeManagerModules.default
     ];
 
     home = {
@@ -75,5 +77,21 @@
     # Enable Home Manager
     programs.home-manager = {
         enable = true;
+    };
+
+    programs.caelestia-dots = {
+        enable = true;
+
+        # Disable modules that you already manage yourself to avoid conflicts
+        hypr.enable = false;
+        fish.enable = false;
+        foot.enable = false;
+        btop.enable = false;
+        
+        # Ensure the shell is active
+        caelestia.shell.enable = true;
+        
+        # Optional: Override settings if needed
+        # caelestia.shell.settings = { ... };
     };
 }

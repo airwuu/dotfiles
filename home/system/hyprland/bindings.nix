@@ -52,7 +52,7 @@ in
     ));
     bindr = [
       #",SUPER, exec, caelestia-quickshell shell toggle launcher"
-      "SUPER, SUPER_L, exec, caelestia-quickshell shell toggle launcher"
+      "SUPER, SUPER_L, exec, caelestia shell drawers toggle launcher"
       # Screenshot with hyprshot
       ", Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh region"
       #"$shiftMod, Print, exec, ~/.config/nixos/home/system/hyprland/scripts/hyprshot.sh monitor"

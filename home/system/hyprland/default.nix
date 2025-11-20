@@ -19,7 +19,7 @@ in
     qt5.qtwayland
     qt6.qtwayland
     libsForQt5.qt5ct
-    qt6ct
+    qt6Packages.qt6ct
 
     wayland-utils
     wayland-protocols
@@ -64,9 +64,11 @@ in
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hypridle.service &"
-	      "hyprctl setcursor phinger-cursors-light 24"
-        "qs -c caelestia &"
-	"caelestia scheme set -n dynamic"
+	      "hyprctl setcursor phinger-cursors-light 24 &"
+        "hyprpaper &"
+        "caelestia shell &"
+#        "qs -c caelestia &"
+#	      "caelestia scheme set -n dynamic"
       ];
 
       monitor = [
@@ -158,7 +160,7 @@ in
         middle_click_paste = false;
       };
 
-      layerrule = [ "noanim, launcher" "noanim, ^args-.*" ];
+      #layerrule = [ "launcher" "^args-.*" ];
       
       input = {
         kb_layout = keyboardLayout;

@@ -4,18 +4,28 @@
     "margin-top": 5,
     "margin-left": 10,
     "margin-right": 10,
-    "height": 30,
+    "height": 35,
     "spacing": 4,
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
+        "custom/cava",
+        "mpris",
         "hyprland/window"
     ],
     "modules-center": [
+        "custom/calendar",
+        "custom/weather",
+        "custom/netspeed",
         "clock"
     ],
     "modules-right": [
         "tray",
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "temperature",
+        "disk",
         "pulseaudio",
         "network",
         "battery",
@@ -43,10 +53,10 @@
         "tooltip": false
     },
     "hyprland/window": {
-        "format": "{class}",
-        "max-length": 20,
+        "format": "{}",
+        "max-length": 40,
         "rewrite": {
-            "": "Hyprland"
+            "": "Desktop"
         }
     },
     "clock": {
@@ -75,7 +85,8 @@
     },
     "tray": {
         "icon-size": 16,
-        "spacing": 10
+        "spacing": 8,
+        "show-passive-items": true
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
@@ -105,5 +116,91 @@
         "format": "⏻",
         "on-click": "wlogout",
         "tooltip": false
+    },
+    "custom/cava": {
+        "exec": "$HOME/.config/waybar/scripts/cava.sh",
+        "tooltip": false,
+        "interval": 1,
+        "format": "{}"
+    },
+    "custom/calendar": {
+        "exec": "$HOME/.config/waybar/scripts/calendar.sh",
+        "interval": 60,
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode" : "year",
+            "mode-mon-col" : 3,
+            "weeks-pos" : "right",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "custom/weather": {
+        "exec": "wttrbar --style 'color:both' --mode 'current' --fahrenheit",
+        "return-type": "json",
+        "interval": 1800,
+        "tooltip": true
+    },
+    "custom/netspeed": {
+        "exec": "$HOME/.config/waybar/scripts/net_speed.sh",
+        "interval": 1,
+        "tooltip": false,
+        "format": "{}"
+    },
+    "mpris": {
+        "format": "{player_icon} {title}",
+        "format-paused": "▶ {title}",
+        "player-icons": {
+            "default": "▶",
+            "spotify": ""
+        },
+        "max-length": 30,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip-format": "{artist} - {title}"
+    },
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "tooltip": true,
+        "tooltip-format": "CPU: {usage}%",
+        "interval": 2,
+        "on-click": "btop"
+    },
+    "memory": {
+        "format": "󰍛 {}%",
+        "tooltip": true,
+        "tooltip-format": "Memory: {used:0.1f}GB / {total:0.1f}GB",
+        "interval": 2,
+        "on-click": "btop"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["󰔏", "󰔎", "󰔓", "󰔐"],
+        "tooltip-format": "Temperature: {temperatureC}°C",
+        "interval": 5
+    },
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{used} / {total} ({percentage_used}%)",
+        "interval": 1800,
+        "path": "/",
+        "warning": 80,
+        "critical": 90,
+        "on-click": "thunar"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰒳",
+            "deactivated": "󰾪"
+        },
+        "tooltip": true
     }
 }

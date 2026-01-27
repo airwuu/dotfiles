@@ -41,9 +41,9 @@
             firefox
             
             # Hyprland
-            waybar
             rofi
             hyprpaper
+            wlogout
 
             # Development - Languages/Tools
             premake5
@@ -75,6 +75,11 @@
             imagemagick
             networkmanagerapplet
             comma
+
+            # Waybar Omarchy modules
+            playerctl
+            bc
+            wttrbar
         ];
 
         # State version - don't touch this

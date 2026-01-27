@@ -9,4 +9,7 @@
       mainBar = builtins.fromJSON (builtins.readFile ./config.jsonc);
     };
   };
+
+  # Make scripts available in ~/.config/waybar/scripts
+  xdg.configFile."waybar/scripts".source = ./scripts;
 }

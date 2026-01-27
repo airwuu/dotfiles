@@ -19,6 +19,7 @@
         # Programs
         ../../home/programs/discord
         ../../home/programs/ghostty
+        ../../home/programs/rofi
         ../../home/programs/spicetify
         ../../home/programs/starship
         ../../home/programs/foot

@@ -67,6 +67,7 @@ in
 	      "hyprctl setcursor phinger-cursors-light 24 &"
         #"systemctl --user start caelestia &"
         "hyprpaper &"
+	"waybar &"
        # "caelestia shell &"
       ];
 

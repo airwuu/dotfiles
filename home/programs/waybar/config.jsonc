@@ -15,8 +15,6 @@
     ],
     "modules-center": [
         "custom/calendar",
-        "custom/weather",
-        "custom/netspeed",
         "clock"
     ],
     "modules-right": [

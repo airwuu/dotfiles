@@ -21,7 +21,6 @@
         "battery",
         "custom/power"
     ],
-    // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,

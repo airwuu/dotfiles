@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   programs.foot = {
@@ -14,7 +14,8 @@
       };
     };
   };
- xdg.dataFile."caelestia/templates/foot" = {
+  
+  xdg.dataFile."caelestia/templates/foot" = {
     source = ./template;
   };
 }

@@ -52,6 +52,7 @@
      shellInit = ''
        set fish_greeting ""
        starship init fish | source
+       caelestia scheme set -n dynamic
      '';
 
     

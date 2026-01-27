@@ -23,11 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +38,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, quickshell, spicetify-nix, ... }:
+  outputs = inputs@{ nixpkgs, spicetify-nix, ... }:
   {
     nixosConfigurations = {
       pinto = nixpkgs.lib.nixosSystem {
@@ -71,12 +66,6 @@
           {
             nixpkgs.overlays = [ ];
             _module.args = { inherit inputs; };
-          }
-
-          {
-            environment.systemPackages = [
-              quickshell.packages.x86_64-linux.default
-            ];
           }
 
           inputs.home-manager.nixosModules.home-manager

@@ -65,10 +65,9 @@ in
         "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hypridle.service &"
 	      "hyprctl setcursor phinger-cursors-light 24 &"
+        #"systemctl --user start caelestia &"
         "hyprpaper &"
-        "caelestia shell &"
-#        "qs -c caelestia &"
-#	      "caelestia scheme set -n dynamic"
+       # "caelestia shell &"
       ];
 
       monitor = [

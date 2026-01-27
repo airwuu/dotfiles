@@ -38,6 +38,11 @@
             brave
             inputs.zen-browser.packages."${system}".default
             firefox
+            
+            # Hyprland
+            waybar
+            rofi
+            hyprpaper
 
             # Development - Languages/Tools
             premake5

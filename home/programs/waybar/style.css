@@ -1,0 +1,124 @@
+/* Rose Pine Palette */
+@define-color base   #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+@define-color muted  #6e6a86;
+@define-color subtle #908caa;
+@define-color text   #e0def4;
+@define-color love   #eb6f92;
+@define-color gold   #f6c177;
+@define-color rose   #ebbcba;
+@define-color pine   #31748f;
+@define-color foam   #9ccfd8;
+@define-color iris   #c4a7e7;
+@define-color highlightLow #21202e;
+@define-color highlightMed #403d52;
+@define-color highlightHigh #524f67;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+/* Floating Module Groups */
+.modules-left, .modules-center, .modules-right {
+    background: @base;
+    border: 1px solid @highlightMed;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.modules-left {
+    padding-left: 5px;
+    padding-right: 15px;
+}
+
+.modules-right {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+/* Individual Modules */
+#custom-launcher {
+    color: @love;
+    font-size: 18px;
+    padding: 0 10px 0 8px;
+    margin-right: 5px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: @subtle;
+}
+
+#workspaces button.active {
+    color: @rose;
+}
+
+#workspaces button.urgent {
+    color: @gold;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: @iris;
+}
+
+#clock {
+    color: @text;
+}
+
+#pulseaudio {
+    color: @foam;
+}
+
+#network {
+    color: @pine;
+}
+
+#battery {
+    color: @gold;
+}
+
+#battery.charging, #battery.plugged {
+    color: @iris;
+}
+
+#battery.critical:not(.charging) {
+    color: @love;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @love;
+}
+
+#custom-power {
+    color: @love;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+@keyframes blink {
+    to {
+        color: @text;
+    }
+}

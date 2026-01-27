@@ -14,6 +14,7 @@
         ../../home/system/neofetch
         ../../home/system/git
         ../../home/system/java
+	../../home/programs/waybar
 
         # Programs
         ../../home/programs/discord
